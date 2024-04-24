@@ -1,0 +1,10 @@
+<suite name="suite">
+<!--    <listeners>-->
+<!--        <listener class-name="Tests.Listeners"/>-->
+<!--    </listeners>-->
+    <test name="test">
+        <classes>
+            <class name="Tests.EditTagID"/>
+        </classes>
+    </test>
+</suite>

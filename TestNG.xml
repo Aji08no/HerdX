@@ -1,0 +1,10 @@
+<suite name="suite">
+    <listeners>
+        <listener class-name="Task.ListenersTasks"></listener>
+    </listeners>
+    <test name="test">
+        <classes>
+            <class name="Task.OfflinePenAndParse"></class>
+        </classes>
+    </test>
+</suite>

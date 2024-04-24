@@ -1,0 +1,12 @@
+<suite name="suite">
+    <listeners>
+        <listener class-name="Part.Listener"/>
+    </listeners>
+    <test name="test">
+        <classes>
+            <class name="Part.MovePenAndPasture"></class>
+            <class name="Part.EditAnimalDetails"></class>
+            <class name="Part.CountingSessions"></class>
+        </classes>
+    </test>
+</suite>
