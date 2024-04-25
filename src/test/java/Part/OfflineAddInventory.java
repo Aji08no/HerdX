@@ -1,6 +1,8 @@
 package Part;
 
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
@@ -348,6 +350,8 @@ public class OfflineAddInventory extends  Herd {
         System.out.println(tagCount.substring(5));
 
         //back arrow
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
 
     }
 }
