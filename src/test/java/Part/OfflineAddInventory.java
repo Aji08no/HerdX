@@ -122,6 +122,7 @@ public class OfflineAddInventory extends  Herd {
         //click pen/pasture
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen / Pasture']"))).click();
         //click weight
+        Thread.sleep(200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Weight']"))).click();
         //click sex/type
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Sex / Type']"))).click();
@@ -348,6 +349,8 @@ public class OfflineAddInventory extends  Herd {
         String[] line1 = verifyTagContent.split("\\r?\\n");
         String tagCount = line1[0];
         System.out.println(tagCount.substring(5));
+
+        Assert.assertEquals(tagCount.substring(5),TagId);
 
         //back arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
