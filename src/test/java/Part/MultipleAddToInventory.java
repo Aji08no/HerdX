@@ -862,6 +862,7 @@ public class MultipleAddToInventory extends Herd {
       //created pop up
       wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Successfully')]")));
       System.out.println("created successfully");
+      System.out.println("test new repository");
       //pen content
       wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]"))).click();
       for (int j=0;j<count;j++){
