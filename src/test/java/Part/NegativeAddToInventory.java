@@ -20,7 +20,7 @@ public class NegativeAddToInventory extends Herd{
     WebDriverWait wait;
     TouchAction touchAction;
 
-    @Test(priority = 0,enabled = true)
+    @Test(priority = 0,enabled = false)//not complete this script
     public void tagId () throws InterruptedException {
         wait=new WebDriverWait(driver,Duration.ofSeconds(30));
         WebDriverWait wait1=new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -28,7 +28,7 @@ public class NegativeAddToInventory extends Herd{
         WebElement totalAnimals = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@class='android.widget.ImageView'])[5]")));
         //driver.findElement(By.xpath("(//*[@class='android.widget.ImageView'])[5]")).click();
         totalAnimals.click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         //plus icon
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='1'])[2]"))).click();
 
@@ -136,6 +136,7 @@ public class NegativeAddToInventory extends Herd{
         //sex/type
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
         //select bull
+        Thread.sleep(200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[14]"))).click();
         //back arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
@@ -174,62 +175,62 @@ public class NegativeAddToInventory extends Herd{
         //select treatment type content
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select Treatment Type']"))).click();
         //select treatment type
+        Thread.sleep(200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='2']"))).click();
         //back arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
         //next
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
 
-        //try
 
         //medicineContent
         try{
             Thread.sleep(3000);
-            wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='2'])[2]")));
-            int next=5;
-            for(int i=0;i < next;i++){
-                Thread.sleep(50);
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
-            }
+            WebElement textVerify = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='No Medicines Added Yet']")));
+            if (textVerify.isDisplayed()) {
+                Thread.sleep(500);
+                //medicine Plus icon
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='2'])[2]"))).click();
+                //Select medicine
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select Medicine']"))).click();
+                //select painkiller
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
+                //back arrow
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
 
+                //scroll
+                touchAction.press(PointOption.point(501, 1948))
+                        .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
+                        .moveTo(PointOption.point(505, 1709))
+                        .release()
+                        .perform();
+
+                //amount
+                WebElement enterAmount = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='10']")));
+                enterAmount.click();
+                enterAmount.sendKeys("4");
+                javaUtility.hideKeyBoard();
+                //duration
+                WebElement enterDuration = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='14']")));
+                enterDuration.click();
+                enterDuration.sendKeys("2");
+                javaUtility.hideKeyBoard();
+                //save
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+                int next = 5;
+                for (int i = 0; i < next; i++) {
+                    Thread.sleep(50);
+                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
+                }
+            }
         }
         catch (Exception e){
             Thread.sleep(500);
-
-            //medicine Plus icon
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='2'])[2]"))).click();
-            //Select medicine
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select Medicine']"))).click();
-            //select painkiller
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
-            //back arrow
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
-
-            //scroll
-            touchAction.press(PointOption.point(501,1948))
-                    .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
-                    .moveTo(PointOption.point(505,1709))
-                    .release()
-                    .perform();
-
-            //amount
-            WebElement enterAmount = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='10']")));
-            enterAmount.click();
-            enterAmount.sendKeys("4");
-            javaUtility.hideKeyBoard();
-            //duration
-            WebElement enterDuration = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='14']")));
-            enterDuration.click();
-            enterDuration.sendKeys("2");
-            javaUtility.hideKeyBoard();
-            //save
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
             int next=5;
             for(int i=0;i < next;i++){
                 Thread.sleep(50);
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
             }
-
         }
 
 
@@ -311,18 +312,31 @@ public class NegativeAddToInventory extends Herd{
         enter.click();
         Thread.sleep(100);
         enter.sendKeys(tagId);
+        driver.hideKeyboard();
         try {
-            Thread.sleep(4000);
-            WebElement enter2 = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@index='1'])[3]")));
-            if (enter2.isDisplayed()){
-                enter2.click();
-                enter2.clear();
-                Thread.sleep(100);
-                enter2.sendKeys(tagId);
+            boolean condition = false;
+            while (!condition){
+                //view summary
+                WebElement viewButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='View Summary']")));
+                String summary = viewButton.getAttribute("enabled");
+                if (summary.equals("false")) {
+                    //enter tag
+                    Thread.sleep(500);
+                    WebElement enter2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@index='1'])[3]")));
+                    enter2.click();
+                    enter2.clear();
+                    Random r2 = new Random();
+                    int rNumber2 = r2.nextInt(100, 999);
+                    enter2.sendKeys("3" + rNumber2);
+                    driver.hideKeyboard();
+                }
+                else {
+                    condition=true;
+                }
             }
-        }
-        catch (Exception e){
-            e.getMessage();
+
+        } catch (Exception e1) {
+            e1.getMessage();
         }
         //select pen/pasture
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
@@ -332,13 +346,13 @@ public class NegativeAddToInventory extends Herd{
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Done']"))).click();
 
         //secondary id
-        WebElement enterSecdaryId = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
+        WebElement enterSecdaryId = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='3']")));
         enterSecdaryId.click();
         enterSecdaryId.sendKeys("02");
         driver.hideKeyboard();
 
         //usda tag
-        WebElement enterUsdaTag = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='3']")));
+        WebElement enterUsdaTag = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='4']")));
         enterUsdaTag.click();
         enterUsdaTag.sendKeys("763874648474637");
         driver.hideKeyboard();
@@ -353,7 +367,7 @@ public class NegativeAddToInventory extends Herd{
         //select treatment type content
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select Treatment Type']"))).click();
         //select treatment type
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Vaccine']"))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='2']"))).click();
         //back arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
         //back arrow
@@ -415,15 +429,15 @@ public class NegativeAddToInventory extends Herd{
                 .perform();
 
         //scroll
-        touchAction.press(PointOption.point(528,636))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
-                .moveTo(PointOption.point(528,1321))
-                .release()
-                .perform();
+//        touchAction.press(PointOption.point(528,636))
+//                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
+//                .moveTo(PointOption.point(528,1321))
+//                .release()
+//                .perform();
 
         //add multiple tag id
         Thread.sleep(500);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[2]"))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Tap to scan Animals']"))).click();
         //EPC Prefix
         Thread.sleep(200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
@@ -670,7 +684,7 @@ public class NegativeAddToInventory extends Herd{
         //click lot id
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Lot Id']"))).click();
         //Click Treatment
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Treatments']"))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Treatments']"))).click();
        // Right Arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@index=3])[2]"))).click();
 
@@ -729,72 +743,71 @@ public class NegativeAddToInventory extends Herd{
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Done']"))).click();
 
         //treatment
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Add']"))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Add']"))).click();
 
 
-//                // select treatment
+                // select treatment
 //                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Treatment']//*[@class='android.widget.ImageView']"))).click();
         //select treatment type content
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select Treatment Type']"))).click();
-//        //select treatment type
-//        Thread.sleep(200);
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='2']"))).click();
-//        //back arrow
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
-//        //next
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
-//
-//        //try
-//
-//        //medicineContent
-//        try{
-//            Thread.sleep(3000);
-//            wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='2'])[2]")));
-//            int next=5;
-//            for(int i=0;i < next;i++){
-//                Thread.sleep(50);
-//                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
-//            }
-//
-//        }
-//        catch (Exception e){
-//            Thread.sleep(500);
-//
-//            //medicine Plus icon
-//            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='2'])[2]"))).click();
-//            //Select medicine
-//            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select Medicine']"))).click();
-//            //select painkiller
-//            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
-//            //back arrow
-//            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
-//
-//            //scroll
-//            touchAction.press(PointOption.point(501,1948))
-//                    .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
-//                    .moveTo(PointOption.point(505,1709))
-//                    .release()
-//                    .perform();
-//
-//            //amount
-//            WebElement enterAmount = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='10']")));
-//            enterAmount.click();
-//            enterAmount.sendKeys("4");
-//            javaUtility.hideKeyBoard();
-//            //duration
-//            WebElement enterDuration = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='14']")));
-//            enterDuration.click();
-//            enterDuration.sendKeys("2");
-//            javaUtility.hideKeyBoard();
-//            //save
-//            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
-//            int next=5;
-//            for(int i=0;i < next;i++){
-//                Thread.sleep(50);
-//                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
-//            }
-//
-//        }
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select Treatment Type']"))).click();
+        //select treatment type
+        Thread.sleep(200);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='2']"))).click();
+        //back arrow
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
+        //next
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
+
+        //try
+        //medicineContent
+        try{
+            Thread.sleep(3000);
+            WebElement textVerify = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='No Medicines Added Yet']")));
+            if (textVerify.isDisplayed()) {
+                Thread.sleep(500);
+                //medicine Plus icon
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='2'])[2]"))).click();
+                //Select medicine
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select Medicine']"))).click();
+                //select painkiller
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
+                //back arrow
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
+
+                //scroll
+                touchAction.press(PointOption.point(501, 1948))
+                        .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
+                        .moveTo(PointOption.point(505, 1709))
+                        .release()
+                        .perform();
+
+                //amount
+                WebElement enterAmount = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='10']")));
+                enterAmount.click();
+                enterAmount.sendKeys("4");
+                javaUtility.hideKeyBoard();
+                //duration
+                WebElement enterDuration = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='14']")));
+                enterDuration.click();
+                enterDuration.sendKeys("2");
+                javaUtility.hideKeyBoard();
+                //save
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+                int next = 5;
+                for (int i = 0; i < next; i++) {
+                    Thread.sleep(50);
+                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
+                }
+            }
+        }
+        catch (Exception e){
+            Thread.sleep(500);
+            int next=5;
+            for(int i=0;i < next;i++){
+                Thread.sleep(50);
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
+            }
+        }
 
         //right arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
@@ -841,7 +854,7 @@ public class NegativeAddToInventory extends Herd{
         //enter tag
         Thread.sleep(500);
         Random r = new Random();
-        int rNumber = r.nextInt(10, 99);
+        int rNumber = r.nextInt(100, 999);
         String tagId = "5" + rNumber;
         WebElement enter = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@index='1'])[3]")));
         enter.click();
@@ -940,5 +953,11 @@ public class NegativeAddToInventory extends Herd{
 
         //verifyPenContent
         //tag search bar
+
+        //wait for successfully pop up
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Animal Added to Inventory Successfully')]")));
+
+        //back
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
 }
