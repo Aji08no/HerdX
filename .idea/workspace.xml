@@ -256,8 +256,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.MultipleAddToInventory" />
-        <item itemvalue="TestNG.MultipleAddToInventory.createMultipleTags" />
         <item itemvalue="TestNG.MultipleAddToInventory.selectParticularCommonAndSpecific" />
+        <item itemvalue="TestNG.MultipleAddToInventory.createMultipleTags" />
         <item itemvalue="TestNG.MultipleAddToInventory.check" />
         <item itemvalue="TestNG.MovePenAndPasture.multipleMove" />
       </list>
