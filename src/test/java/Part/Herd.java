@@ -70,12 +70,15 @@ public class Herd {
         mail.click();
         Thread.sleep(1000);
         mail.sendKeys("gangappan@pro17analytics.com");
+//        mail.sendKeys("muthuselvan1708@gmail.com");
 
         try {
             WebElement password = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@class='android.widget.EditText'])[2]")));
             password.click();
             Thread.sleep(500);
             password.sendKeys("Otis@2023");
+//            password.sendKeys("Tokyo@1708");
+
             driver.findElement(By.xpath("(//*[@content-desc='Log In'])[2]")).click();
 
         }
