@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="a9e55852-d396-4d5d-a752-1c76736bf03e" name="Changes" comment="first" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/BulkTreat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/BulkTreat.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/Part/AddInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/AddInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/Herd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/Herd.java" afterDir="false" />
+=======
+    <list default="true" id="a9e55852-d396-4d5d-a752-1c76736bf03e" name="Changes" comment="first">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/AddInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/AddInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/Herd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/Herd.java" afterDir="false" />
+    </list>
+>>>>>>> parent of d31bfda (KDiff3 is a program that)
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2bWcTlNIsJ3fW1I7l7DE9DE00YU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TestNG.AddInventory.check.executor": "Run",
+    "TestNG.AddInventory.createSingleTag.executor": "Run",
+    "TestNG.AddInventory.executor": "Run",
+    "TestNG.AddInventory.selectThreeCommonAndSpecific.executor": "Run",
+    "TestNG.AllDeleteTag.executor": "Run",
+    "TestNG.AssignedReaders.executor": "Run",
+    "TestNG.BulkTreat.addBulkTreat.executor": "Run",
+    "TestNG.BulkTreat.executor": "Run",
+    "TestNG.C:/Users/E-7/IdeaProjects/HerdX/Demo.xml.executor": "Run",
+    "TestNG.C:/Users/E-7/IdeaProjects/HerdX/HomePage.xml.executor": "Run",
+    "TestNG.C:/Users/E-7/IdeaProjects/HerdX/TestNG.xml.executor": "Run",
+    "TestNG.C:/Users/E-7/IdeaProjects/HerdX/Try.xml.executor": "Run",
+    "TestNG.CountingSessions.executor": "Run",
+    "TestNG.CreateAllTagAnimalHealth.executor": "Run",
+    "TestNG.CreateMultipleAnimalsAndBulkTreat.executor": "Run",
+    "TestNG.CreateMultipleTagID_and_MoveToPens.executor": "Run",
+    "TestNG.CreateMultipleTagID_and_MoveToPens.verifyCreatedTagsId.executor": "Run",
+    "TestNG.CreateMultipleTagsID.executor": "Run",
+    "TestNG.CreateMultipleTagsID.verifyCreatedMultipleTagID.executor": "Run",
+    "TestNG.CreateTagID (1).executor": "Run",
+    "TestNG.CreateTagID.executor": "Run",
+    "TestNG.CreateTagID.tagId08.executor": "Run",
+    "TestNG.CreateTagID.tagIdOne.executor": "Run",
+    "TestNG.CreateTagID.tagIdSecond.executor": "Run",
+    "TestNG.CreateTreatTag.executor": "Run",
+    "TestNG.DashBoard.executor": "Run",
+    "TestNG.DeleteFilter.executor": "Run",
+    "TestNG.DeleteFunctionality.executor": "Run",
+    "TestNG.DeleteMultipleTagsID (1).executor": "Run",
+    "TestNG.DeleteMultipleTagsID.executor": "Run",
+    "TestNG.DeleteMultipleTagsID.verifyDeletedMultipleTagID.executor": "Run",
+    "TestNG.DeleteTag.deletePenTagID.executor": "Run",
+    "TestNG.DeleteTag.executor": "Run",
+    "TestNG.EditAnimalDetails.executor": "Run",
+    "TestNG.EditTagID.createWatchList.executor": "Run",
+    "TestNG.EditTagID.executor": "Run",
+    "TestNG.EditTagId.executor": "Run",
+    "TestNG.Engine.executor": "Run",
+    "TestNG.Engine.openApp.executor": "Run",
+    "TestNG.HerdPart.createTagId.executor": "Run",
+    "TestNG.HerdXApp.createTagId1.executor": "Run",
+    "TestNG.HerdXApp.executor": "Run",
+    "TestNG.HerdXHome.executor": "Run",
+    "TestNG.Herdx (1).executor": "Run",
+    "TestNG.Herdx (2).executor": "Run",
+    "TestNG.Herdx.createProtocols.executor": "Run",
+    "TestNG.Herdx.executor": "Run",
+    "TestNG.Herdx.openApp.executor": "Run",
+    "TestNG.HomePage.createTagId.executor": "Run",
+    "TestNG.HomePage.executor": "Run",
+    "TestNG.InventoryFilter.executor": "Run",
+    "TestNG.Location (1).executor": "Run",
+    "TestNG.Location.createLocation.executor": "Run",
+    "TestNG.Location.deleteLocation.executor": "Run",
+    "TestNG.Location.editLocation.executor": "Run",
+    "TestNG.Location.executor": "Run",
+    "TestNG.Location.negativeCreateLocation.executor": "Run",
+    "TestNG.Location.negativeEditLocation.executor": "Run",
+    "TestNG.Location.negativeLocation.executor": "Run",
+    "TestNG.Login.executor": "Run",
+    "TestNG.Login.loginProcess.executor": "Run",
+    "TestNG.MenuBarNegative.executor": "Run",
+    "TestNG.MenuLocation.executor": "Run",
+    "TestNG.MovePenAndPasture.executor": "Run",
+    "TestNG.MovePenAndPasture.multipleMove.executor": "Run",
+    "TestNG.MovePenAndPasture.singleMove.executor": "Run",
+    "TestNG.MultipleAddToInventory.check.executor": "Run",
+    "TestNG.MultipleAddToInventory.createMultipleTags.executor": "Run",
+    "TestNG.MultipleAddToInventory.executor": "Run",
+    "TestNG.MultipleAddToInventory.selectParticularCommonAndSpecific.executor": "Run",
+    "TestNG.NegativeAddToInventory.executor": "Run",
+    "TestNG.NegativeAddToInventory.singleTagCreate.executor": "Run",
+    "TestNG.NegativeAddToInventory.tagId.executor": "Run",
+    "TestNG.NegativeScenarioPenAndPasture.executor": "Run",
+    "TestNG.OfflineAddInventory.executor": "Run",
+    "TestNG.OfflineAddInventory.selectThreeCommonAndSpecific.executor": "Run",
+    "TestNG.OfflinePenAndParse.createPen.executor": "Run",
+    "TestNG.OfflinePenAndParse.executor": "Run",
+    "TestNG.Pens_Pastures (1).executor": "Run",
+    "TestNG.Pens_Pastures (2).executor": "Run",
+    "TestNG.Pens_Pastures.addAnimalPasture.executor": "Run",
+    "TestNG.Pens_Pastures.addAnimalPen.executor": "Run",
+    "TestNG.Pens_Pastures.createPens.executor": "Run",
+    "TestNG.Pens_Pastures.executor": "Run",
+    "TestNG.Pens_Pastures.move.executor": "Run",
+    "TestNG.Pens_Pastures.moveAndCreatePen.executor": "Run",
+    "TestNG.Protocol.createProtocols.executor": "Run",
+    "TestNG.Protocol.executor": "Run",
+    "TestNG.Scroll (1).executor": "Run",
+    "TestNG.Scroll.crt.executor": "Run",
+    "TestNG.Scroll.executor": "Run",
+    "TestNG.Scroll.inventory.executor": "Run",
+    "TestNG.SelectAllCAndSNegative.executor": "Run",
+    "TestNG.SelectAllCommonAndSpecificInformation.executor": "Run",
+    "TestNG.SelectAllCommonAndSpecificInformation.tagId.executor": "Run",
+    "TestNG.SelectAllCommonAndSpecificInformation.verifyAddTagId.executor": "Run",
+    "TestNG.SelectAllCommonAndSpecificInformation_Toggle.executor": "Run",
+    "TestNG.SelectAllCommonAndSpecificInformation_Toggle.tagId.executor": "Run",
+    "TestNG.SelectAllCommonAndSpecificInformation_Toggle.verifyAddTagId.executor": "Run",
+    "TestNG.TaskFunctionality.executor": "Run",
+    "TestNG.TasksFilter.executor": "Run",
+    "TestNG.TreatFilter.executor": "Run",
+    "TestNG.UserAddedMedicineAddAnimal.executor": "Run",
+    "TestNG.UserAddedMedicineAddAnimal.summa.executor": "Run",
+    "TestNG.UserAddedMedicines.createMedicines (1).executor": "Run",
+    "TestNG.UserAddedMedicines.createMedicines.executor": "Run",
+    "TestNG.UserAddedMedicines.executor": "Run",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "C:/Users/E-7/IdeaProjects/HerdX/src/main/java/org/example/Main.java",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "XML"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Part" />
+      <recent name="Task" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.AddInventory">
+    <configuration name="AddInventory" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.AddInventory" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddInventory.check" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.AddInventory" />
+      <option name="METHOD_NAME" value="check" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddInventory.createSingleTag" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.AddInventory" />
+      <option name="METHOD_NAME" value="createSingleTag" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddInventory.selectThreeCommonAndSpecific" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.AddInventory" />
+      <option name="METHOD_NAME" value="selectThreeCommonAndSpecific" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MultipleAddToInventory" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.MultipleAddToInventory" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.AddInventory" />
+        <item itemvalue="TestNG.AddInventory.selectThreeCommonAndSpecific" />
+        <item itemvalue="TestNG.AddInventory.createSingleTag" />
+        <item itemvalue="TestNG.AddInventory.check" />
+        <item itemvalue="TestNG.MultipleAddToInventory" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-f644763e9732-ebaef533" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9e55852-d396-4d5d-a752-1c76736bf03e" name="Changes" comment="" />
+      <created>1706334286713</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706334286713</updated>
+    </task>
+    <task id="LOCAL-00001" summary="first">
+      <option name="closed" value="true" />
+      <created>1713957161618</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713957161618</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first" />
+    <option name="LAST_COMMIT_MESSAGE" value="first" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
