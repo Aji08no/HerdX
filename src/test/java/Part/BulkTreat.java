@@ -20,6 +20,8 @@ public class BulkTreat extends Herd{
     String medicineN ="";
     String medicineT="";
 
+    String penNameActual="";
+
     String transferPenName="";
 
     WebDriverWait wait;
@@ -106,11 +108,12 @@ public class BulkTreat extends Herd{
         //pen content
         WebDriverWait wait1=new WebDriverWait(driver,Duration.ofSeconds(20));
         Thread.sleep(500);
-        WebElement penContentN = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
-        String contentN = penContentN.getAttribute("content-desc");
-        String[] linesN = contentN.split("\\r?\\n");
-        String penNameActual = linesN[0];
+
         try{
+            WebElement penContentN = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
+            String contentN = penContentN.getAttribute("content-desc");
+            String[] linesN = contentN.split("\\r?\\n");
+            penNameActual = linesN[0];
             Thread.sleep(1000);
             //pens content
             WebElement penContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
@@ -136,10 +139,45 @@ public class BulkTreat extends Herd{
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
             //save
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+            //try
+            try {
+                wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Added Successfully')]")));
+            }
+            catch (Exception e1){
+                boolean addCondition = true;
+                while (addCondition){
+                    WebElement editText = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
+                    if (editText.isDisplayed()){
+                        editText.click();
+                        Thread.sleep(200);
+                        editText.clear();
+                        Random r=new Random();
+                        int rNumber = r.nextInt(0, 99);
+                        Thread.sleep(100);
+                        editText.sendKeys("ranger"+rNumber);
+                        driver.hideKeyboard();
+
+                        //pasture
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+                        //save
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+
+                        try {
+                            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Enclosure Name Already Exists')]")));
+                        }catch (Exception e2){
+                            addCondition = false;
+                        }
+
+                    }
+
+                }
+            }
+            Thread.sleep(200);
             //pen content
             WebElement penContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
             String content2 = penContent.getAttribute("content-desc");
             String[] lines2 = content2.split("\\r?\\n");
+            penNameActual = lines2[0];
             System.out.println("PenName : " + lines2[0]);
         }
         Thread.sleep(1000);
@@ -186,6 +224,20 @@ public class BulkTreat extends Herd{
                 //right arrow
                 Thread.sleep(200);
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
+
+                try{
+                    //EPC Prefix
+                    wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'No tags assigned to this organization')]")));
+                    System.out.println("No tags assigned to this organization! Please contact HerdX support.");
+                    //back arrow
+                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
+
+                    //close pop up
+                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Close']"))).click();
+                    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+                } catch (Exception e) {
+                    e.getMessage();
+                }
 
                 //EPC Prefix
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
@@ -440,6 +492,7 @@ public class BulkTreat extends Herd{
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
 
         //dosage Plus icon
+        Thread.sleep(200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='2'])[2]"))).click();
         //Select medicine
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select Medicine']"))).click();
@@ -508,6 +561,7 @@ public class BulkTreat extends Herd{
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
 
         //cancel  icon
+        Thread.sleep(200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
         //close
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Close']"))).click();
@@ -554,5 +608,11 @@ public class BulkTreat extends Herd{
         System.out.println("Actual Medicine type : " + line[3] + " Expected Medicine type : " + medicineT);
         Assert.assertEquals(line[5], medicineN);
         System.out.println("Actual Treatment type : " + line[5] + " Expected Treatment type : " + medicineN);
+        //back arrow
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
+
+        //back arrow
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
 }
