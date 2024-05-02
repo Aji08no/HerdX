@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a9e55852-d396-4d5d-a752-1c76736bf03e" name="Changes" comment="first">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Part/CountingSessions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/CountingSessions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/DeleteTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/DeleteTag.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +165,7 @@
       <recent name="Task" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.CountingSessions">
+  <component name="RunManager" selected="TestNG.DeleteTag">
     <configuration name="AddInventory" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
@@ -177,24 +177,6 @@
       <option name="PACKAGE_NAME" value="Part" />
       <option name="MAIN_CLASS_NAME" value="Part.AddInventory" />
       <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddInventory.createSingleTag" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HerdX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Part.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Part" />
-      <option name="MAIN_CLASS_NAME" value="Part.AddInventory" />
-      <option name="METHOD_NAME" value="createSingleTag" />
-      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -253,13 +235,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DeleteTag" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.DeleteTag" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.DeleteTag" />
         <item itemvalue="TestNG.CountingSessions" />
         <item itemvalue="TestNG.BulkTreat" />
         <item itemvalue="TestNG.AddInventory" />
         <item itemvalue="TestNG.AddInventory.selectThreeCommonAndSpecific" />
-        <item itemvalue="TestNG.AddInventory.createSingleTag" />
       </list>
     </recent_temporary>
   </component>

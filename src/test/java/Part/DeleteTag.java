@@ -22,10 +22,12 @@ public class DeleteTag extends Herd{
     String selectLost="Lost";
     String selectSold="Sold";
     WebDriverWait wait;
+    WebDriverWait wait1;
 
     @Test(priority = 0)
     public void deletePenTagID() throws InterruptedException {
         wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait1=new WebDriverWait(driver, Duration.ofSeconds(5));
 
         Thread.sleep(1000);
         //total animals
@@ -37,9 +39,9 @@ public class DeleteTag extends Herd{
             String content2 = penContent.getAttribute("content-desc");
             String[] lines2 = content2.split("\\r?\\n");
             System.out.println("PenName : " + lines2[0]);
-            System.out.println("PenName : " + lines2[1]);
+            System.out.println("No.of.tags : " + lines2[1]);
             if (penContent.isDisplayed()){
-                System.out.println("There are tag in a page");
+                System.out.println("Tags are in a page");
             }
         }
         catch (Exception e){
@@ -51,15 +53,49 @@ public class DeleteTag extends Herd{
             WebElement enter = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
             enter.click();
             Thread.sleep(100);
-            enter.sendKeys("cartoon");
+            enter.sendKeys("Cartoon");
             driver.hideKeyboard();
             //pen
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
             //save
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+            //try
+            try {
+                wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Added Successfully')]")));
+            }
+            catch (Exception e1){
+                boolean addCondition = true;
+                while (addCondition){
+                    WebElement editText = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
+                    if (editText.isDisplayed()){
+                        editText.click();
+                        Thread.sleep(200);
+                        editText.clear();
+                        Random r=new Random();
+                        int rNumber = r.nextInt(0, 99);
+                        Thread.sleep(100);
+                        editText.sendKeys("Cartoon"+rNumber);
+                        driver.hideKeyboard();
+
+                        //pasture
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+                        //save
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+
+                        try {
+                            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Enclosure Name Already Exists')]")));
+                        }catch (Exception e2){
+                            addCondition = false;
+                        }
+
+                    }
+
+                }
+            }
+        }
 //            //pen content
 //            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[17]"))).click();
-        }
+
         Thread.sleep(200);
         //pen tag
         WebElement penContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
@@ -81,8 +117,6 @@ public class DeleteTag extends Herd{
 
             //Manual Entry
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Manual Entry')]"))).click();
-            //Manual Entry
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Manual Entry')]"))).click();
             //Manual click
             Thread.sleep(1000);
             //click pen/pasture
@@ -102,6 +136,19 @@ public class DeleteTag extends Herd{
             //right arrow
             Thread.sleep(200);
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
+            try{
+                //EPC Prefix
+                wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'No tags assigned to this organization')]")));
+                System.out.println("No tags assigned to this organization! Please contact HerdX support.");
+                //back arrow
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
+
+                //close pop up
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Close']"))).click();
+                driver.pressKey(new KeyEvent(AndroidKey.BACK));
+            } catch (Exception e) {
+                e.getMessage();
+            }
             //EPC Prefix
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
             //EPC Prefix dropdown select
@@ -175,22 +222,33 @@ public class DeleteTag extends Herd{
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[14]//android.widget.ImageView[@index='1']"))).click();
         //delete inventory
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Delete From Inventory']"))).click();
-
+        Thread.sleep(200);
         //death
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='"+selectTheft+"']"))).click();
-
+        Thread.sleep(200);
         //next
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Next']"))).click();
-         Thread.sleep(2000);
+//         Thread.sleep(2000);
         //delete
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Delete']"))).click();
+
+        try {
+            WebElement deleteButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Delete']")));
+            if (deleteButton.isDisplayed()){
+                Thread.sleep(200);
+                deleteButton.click();
+            }
+        }
+        catch (Exception e){
+            e.getMessage();
+        }
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Animal Has Been Deleted')]")));
 
         System.out.println("TagID Deleted Successfully");
         System.out.println("Deleted TagID :"+deleteTag);
 
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
+//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
 
     }
 
@@ -216,7 +274,7 @@ public class DeleteTag extends Herd{
 
         String[] lines = tagValue.split("\\r?\\n");
         String actual = lines[0];
-        Assert.assertEquals(actual,deleteID);
+        Assert.assertEquals(actual,deleteID.trim());
         System.out.println("Verified Successfully");
 
     }
