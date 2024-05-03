@@ -183,7 +183,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddInventory.selectThreeCommonAndSpecific" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AllDeleteTag" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
         <pattern>
@@ -192,9 +192,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Part" />
-      <option name="MAIN_CLASS_NAME" value="Part.AddInventory" />
-      <option name="METHOD_NAME" value="selectThreeCommonAndSpecific" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="MAIN_CLASS_NAME" value="Part.AllDeleteTag" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -255,10 +254,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.DeleteTag" />
+        <item itemvalue="TestNG.AllDeleteTag" />
         <item itemvalue="TestNG.CountingSessions" />
         <item itemvalue="TestNG.BulkTreat" />
         <item itemvalue="TestNG.AddInventory" />
-        <item itemvalue="TestNG.AddInventory.selectThreeCommonAndSpecific" />
       </list>
     </recent_temporary>
   </component>
