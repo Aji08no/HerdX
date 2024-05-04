@@ -1,6 +1,8 @@
 package Part;
 
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
@@ -11,13 +13,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+import java.util.Random;
 
 public class EditAnimalDetails extends Herd {
 
-    @Test
+//    @Test
     public void editTagIdDetails() throws InterruptedException, IOException {
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
         TouchAction touchAction=new TouchAction<>(driver);
@@ -40,7 +44,7 @@ public class EditAnimalDetails extends Herd {
         String[] lines2 = content2.split("\\r?\\n");
         String tagId = lines2[0].substring(4).trim();
         Thread.sleep(200);
-        System.out.println("TagId :"+tagId);
+        System.out.println("Edit TagId :"+tagId);
         //menu dot
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[14]//*[@index='1']"))).click();
 
@@ -185,5 +189,145 @@ public class EditAnimalDetails extends Herd {
         //weaning weight
         Assert.assertEquals(lines3[29],pro.getProperty("weaningWeight")+" lbs");
         System.out.println("Actual weaningWeight :"+lines3[29]+"  "+"Expected weaningWeight :"+pro.getProperty("weaningWeight")+" lbs");
+    }
+
+
+    @Test
+    public void checkEdit() throws IOException, InterruptedException {
+
+        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait1=new WebDriverWait(driver, Duration.ofSeconds(5));
+        TouchAction touchAction=new TouchAction<>(driver);
+        String path = "C:\\Users\\E-7\\IdeaProjects\\HerdX\\src\\main\\resources\\Imformation.properties";
+        FileInputStream file=new FileInputStream(path);
+        Properties pro=new Properties();
+        pro.load(file);
+        //Total Animals
+        WebElement location1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Total Animals')]")));
+        location1.click();
+        Thread.sleep(1000);
+        try {
+            WebElement penContent = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.view.View[@index='1'])[4]")));
+            String content = penContent.getAttribute("content-desc");
+            String[] lines = content.split("\\r?\\n");
+            System.out.println("PenName : " + lines[0]);
+
+            //pen count
+            if(Integer.parseInt(lines[1])>0){
+                penContent.click();
+                //tag
+                WebElement tagContent = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.view.View[@index='0'])[14]")));
+                String content2 = tagContent.getAttribute("content-desc");
+                String[] lines2 = content2.split("\\r?\\n");
+                String tagId = lines2[0].substring(4).trim();
+                Thread.sleep(200);
+                System.out.println("Edit TagId :"+tagId);
+            }
+            else {
+                //plus icon
+                Thread.sleep(5000);
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='1'])[2]"))).click();
+
+                //Add animal to inventory
+                Thread.sleep(500);
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@index='0' and @class='android.widget.ImageView']"))).click();
+
+                //Manual Entry
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Manual Entry')]"))).click();
+                //Manual click
+                Thread.sleep(1000);
+                //click pen/pasture
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen / Pasture']"))).click();
+                //right arrow
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
+                //select pen/pasture
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@content-desc='Select'])[1]"))).click();
+                //select pen
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]"))).click();
+                //done
+                Thread.sleep(200);
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Done']"))).click();
+                //right arrow
+                Thread.sleep(200);
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
+                //right arrow
+                Thread.sleep(200);
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
+                try{
+                    //EPC Prefix
+                    wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'No tags assigned to this organization')]")));
+                    System.out.println("No tags assigned to this organization! Please contact HerdX support.");
+                    //back arrow
+                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
+
+                    //close pop up
+                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Close']"))).click();
+                    driver.pressKey(new KeyEvent(AndroidKey.BACK));
+                } catch (Exception e) {
+                    e.getMessage();
+                }
+                //EPC Prefix
+                wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
+                //EPC Prefix dropdown select
+                Thread.sleep(500);
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='E26878434']"))).click();
+                //select
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.Button)[3]"))).click();
+                //select dropDown
+                Thread.sleep(100);
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='99977149481']"))).click();
+                //enter tag
+                Thread.sleep(500);
+                    boolean condition = false;
+                    while (!condition){
+                        try{
+                            WebElement viewButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='View Summary']")));
+                            String summeryview = viewButton.getAttribute("enabled");
+                            if (summeryview.equals("false")){
+                                //enter tag
+                                Thread.sleep(500);
+                                WebElement enter2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@index='1'])[3]")));
+                                enter2.click();
+                                enter2.clear();
+                                Random r2 = new Random();
+                                int rNumber2 = r2.nextInt(100, 999);
+                                enter2.sendKeys("2" + rNumber2);
+                                driver.hideKeyboard();
+
+                            }else {
+                                //view summary
+                                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@content-desc='View Summary']"))).click();
+                                //add animals to inventory
+                                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Add Animals to Inventory']"))).click();
+                                //yes
+                                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Yes']"))).click();
+                                condition=true;
+                            }
+                        }
+                        catch (Exception e){
+                            e.getMessage();
+                        }
+                    }
+                System.out.println("Doesn't created");
+                    if(Integer.parseInt(lines[1])>0){
+                        penContent.click();
+                        System.out.println(" created");
+                        //tag
+                        WebElement tagContent = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.view.View[@index='0'])[14]")));
+                        String content2 = tagContent.getAttribute("content-desc");
+                        String[] lines2 = content2.split("\\r?\\n");
+                        String tagId = lines2[0].substring(4).trim();
+                        Thread.sleep(200);
+                        System.out.println("Edit TagId :"+tagId);
+                    }else {
+                        System.out.println("Doesn't created the tag");
+                    }
+            }
+        }catch (Exception e){
+            //plus icon
+
+        }
+
+
     }
 }
