@@ -90,6 +90,14 @@ public class Herd {
             driver.findElement(By.xpath("(//*[@content-desc='Log In'])[2]")).click();
         }
 
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@content-desc='Update Later']"))).click();
+        }
+        catch (Exception e){
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@content-desc='Update Later']"))).click();
+
+        }
+
 
 
         javaUtility=new JavaUtility(driver);
