@@ -18,13 +18,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+import java.util.Random;
 
 public class Location extends Herd{
+
+    String locationName="";
 
 
     @Test(priority = 0,enabled = true)
     public void createLocation() throws InterruptedException, IOException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(8));
         String path = "C:\\Users\\E-7\\IdeaProjects\\HerdX\\src\\main\\resources\\Imformation.properties";
         FileInputStream file = new FileInputStream(path);
         Properties pro = new Properties();
@@ -43,8 +47,10 @@ public class Location extends Herd{
         //enter name
         WebElement name = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='1']")));
         name.click();
-        Thread.sleep(200);
-        name.sendKeys(pro.getProperty("lName"));
+        Thread.sleep(500);
+        String propertiesFile = pro.getProperty("lName");
+        locationName=propertiesFile;
+        name.sendKeys(propertiesFile);
         //enter mail
         WebElement mail = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='3']")));
         mail.click();
@@ -84,11 +90,44 @@ public class Location extends Herd{
 
         //sava
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+
+        //created pop up
+        try {
+            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Location Added Successfully')]")));
+        }
+        catch (Exception e){
+            WebElement name1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='1']")));
+            String getName = name1.getText();
+
+            boolean condition = true;
+            while (condition){
+                Random r=new Random();
+
+                name1.click();
+                Thread.sleep(200);
+                name1.clear();
+                String generateName = getName + r.nextInt(0, 25);
+                locationName=generateName;
+                name1.sendKeys(generateName);
+                driver.hideKeyboard();
+
+                //save
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+
+                try {
+                    wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Location name already exist in organization,')]")));
+                }
+                catch (Exception e1){
+                    condition = false;
+                }
+            }
+
+        }
         //search location
         WebElement searchLocation = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']")));
         searchLocation.click();
         Thread.sleep(200);
-        searchLocation.sendKeys(pro.getProperty("lName"));
+        searchLocation.sendKeys(locationName);
         driver.hideKeyboard();
 
         //menu dot
@@ -98,8 +137,15 @@ public class Location extends Herd{
         //get name
         WebElement verifyName = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='1']")));
         String createName = verifyName.getText();
-        Assert.assertEquals(createName,pro.getProperty("lName"));
-        System.out.println("Actual name :"+createName+"  Expected name :"+pro.getProperty("lName"));
+        if(createName.equals(pro.getProperty("lName"))){
+            Assert.assertEquals(createName,pro.getProperty("lName"));
+            System.out.println("Actual name :"+createName+"  Expected name :"+pro.getProperty("lName"));
+        }
+        else {
+            Assert.assertEquals(createName,locationName);
+            System.out.println("Actual name :"+createName+"  Expected name :"+locationName);
+        }
+
         //get mail
         WebElement verifyMail = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='3']")));
         String createMail = verifyMail.getText();
@@ -141,6 +187,7 @@ public class Location extends Herd{
     @Test(priority = 1,enabled = true)
     public void editLocation() throws InterruptedException, IOException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(8));
         String path = "C:\\Users\\E-7\\IdeaProjects\\HerdX\\src\\main\\resources\\Imformation.properties";
         FileInputStream file = new FileInputStream(path);
         Properties pro = new Properties();
@@ -152,7 +199,7 @@ public class Location extends Herd{
 
         WebElement searchLocation = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']")));
         searchLocation.click();
-        searchLocation.sendKeys(pro.getProperty("lName"));
+        searchLocation.sendKeys(locationName);
         try {
             WebElement menuDot = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[2]")));
             String verifyMenuDot = menuDot.getAttribute("clickable");
@@ -173,7 +220,11 @@ public class Location extends Herd{
         name.click();
         Thread.sleep(200);
         name.clear();
-        name.sendKeys(pro.getProperty("eName"));
+        String propertiesFile = pro.getProperty("eName");
+        locationName=propertiesFile;
+        name.sendKeys(propertiesFile);
+        driver.hideKeyboard();
+
         //enter mail
         WebElement mail = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='3']")));
         mail.click();
@@ -217,10 +268,42 @@ public class Location extends Herd{
         driver.hideKeyboard();
         //sava
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+
+        //successfully pop up
+        try {
+            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Location Updated Successfully')]")));
+        }
+        catch (Exception e){
+            WebElement name1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='1']")));
+            String getName = name1.getText();
+
+            boolean condition = true;
+            while (condition){
+                Random r=new Random();
+
+                name1.click();
+                Thread.sleep(200);
+                name1.clear();
+                String generateName = getName + r.nextInt(0, 25);
+                locationName=generateName;
+                name1.sendKeys(generateName);
+                driver.hideKeyboard();
+
+                //save
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+
+                try {
+                    wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Location name already exist in organization,')]")));
+                }
+                catch (Exception e1){
+                    condition = false;
+                }
+            }
+        }
         WebElement searchLocation2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']")));
         searchLocation2.click();
         searchLocation2.clear();
-        searchLocation2.sendKeys(pro.getProperty("eName"));
+        searchLocation2.sendKeys(locationName);
 
         try {
             WebElement menuDot = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[2]")));
@@ -240,8 +323,15 @@ public class Location extends Herd{
         //get name
         WebElement verifyName = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='1']")));
         String editName = verifyName.getText();
-        Assert.assertEquals(editName,pro.getProperty("eName"));
-        System.out.println("Actual name :"+editName+"  Expected name :"+pro.getProperty("eName"));
+
+        if(editName.equals(pro.getProperty("eName"))){
+            Assert.assertEquals(editName,pro.getProperty("eName"));
+            System.out.println("Actual name :"+editName+"  Expected name :"+pro.getProperty("eName"));
+        }
+        else {
+            Assert.assertEquals(editName,locationName);
+            System.out.println("Actual name :"+editName+"  Expected name :"+locationName);
+        }
         //get mail
         WebElement verifyMail = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='3']")));
         String editMail = verifyMail.getText();
@@ -288,7 +378,7 @@ public class Location extends Herd{
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Manage Sites']"))).click();
         WebElement searchLocation = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']")));
         searchLocation.click();
-        searchLocation.sendKeys("B test");
+        searchLocation.sendKeys(locationName);
         //delete location menu
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[2]"))).click();
         //delete location
@@ -304,7 +394,9 @@ public class Location extends Herd{
 
         WebElement searchLocation1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']")));
         searchLocation1.click();
-        searchLocation1.sendKeys("B test");
+        searchLocation1.sendKeys(locationName);
+        driver.hideKeyboard();
+
 
         try {
             WebElement display = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'No Location Found')]")));
@@ -315,6 +407,10 @@ public class Location extends Herd{
         catch (Exception e){
             e.getMessage();
         }
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        Thread.sleep(200);
+        //cancel icon
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
 
     }
 

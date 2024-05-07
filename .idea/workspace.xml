@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a9e55852-d396-4d5d-a752-1c76736bf03e" name="Changes" comment="first">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Part/EditAnimalDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/EditAnimalDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/Location.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +165,7 @@
       <recent name="Task" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.EditAnimalDetails">
+  <component name="RunManager" selected="TestNG.Location">
     <configuration name="AllDeleteTag" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
@@ -176,40 +176,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="Part" />
       <option name="MAIN_CLASS_NAME" value="Part.AllDeleteTag" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BulkTreat" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HerdX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Part.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Part" />
-      <option name="MAIN_CLASS_NAME" value="Part.BulkTreat" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CountingSessions" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HerdX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Part.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Part" />
-      <option name="MAIN_CLASS_NAME" value="Part.CountingSessions" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -251,13 +217,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Location" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.Location" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Location.createLocation" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.Location" />
+      <option name="METHOD_NAME" value="createLocation" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.Location" />
+        <item itemvalue="TestNG.Location.createLocation" />
         <item itemvalue="TestNG.EditAnimalDetails" />
         <item itemvalue="TestNG.DeleteTag" />
         <item itemvalue="TestNG.AllDeleteTag" />
-        <item itemvalue="TestNG.CountingSessions" />
-        <item itemvalue="TestNG.BulkTreat" />
       </list>
     </recent_temporary>
   </component>
