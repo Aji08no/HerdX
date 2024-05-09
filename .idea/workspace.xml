@@ -91,6 +91,8 @@
     "TestNG.HomePage.createTagId.executor": "Run",
     "TestNG.HomePage.executor": "Run",
     "TestNG.InventoryFilter.executor": "Run",
+    "TestNG.Inventory_Pasture.createPasture.executor": "Run",
+    "TestNG.Inventory_Pasture.executor": "Run",
     "TestNG.Inventory_Pen.executor": "Run",
     "TestNG.Location (1).executor": "Run",
     "TestNG.Location.createLocation.executor": "Run",
@@ -166,8 +168,8 @@
       <recent name="Task" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Inventory_Pen">
-    <configuration name="AddInventory" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.Inventory_Pasture">
+    <configuration name="Inventory_Pasture" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
         <pattern>
@@ -176,8 +178,26 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Part" />
-      <option name="MAIN_CLASS_NAME" value="Part.AddInventory" />
+      <option name="MAIN_CLASS_NAME" value="Part.Inventory_Pasture" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Inventory_Pasture.createPasture" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.Inventory_Pasture" />
+      <option name="METHOD_NAME" value="createPasture" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -218,24 +238,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovePenAndPasture.check" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HerdX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Part.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Part" />
-      <option name="MAIN_CLASS_NAME" value="Part.MovePenAndPasture" />
-      <option name="METHOD_NAME" value="check" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MovePenAndPasture.singleMove" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
@@ -256,11 +258,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.Inventory_Pasture" />
         <item itemvalue="TestNG.Inventory_Pen" />
+        <item itemvalue="TestNG.Inventory_Pasture.createPasture" />
         <item itemvalue="TestNG.MovePenAndPasture.singleMove" />
         <item itemvalue="TestNG.MovePenAndPasture" />
-        <item itemvalue="TestNG.MovePenAndPasture.check" />
-        <item itemvalue="TestNG.AddInventory" />
       </list>
     </recent_temporary>
   </component>
