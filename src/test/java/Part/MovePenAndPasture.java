@@ -216,8 +216,6 @@ public class MovePenAndPasture extends Herd {
             System.out.println("PenName : " + lines2[0]);
             System.out.println("No.of PenTag : " + lines2[1]);
             if(pastureContent.isDisplayed()){
-                System.out.println("inside");
-
                 try {
                     String under = lines2[25];
                     if (under.equals("Under Transfer")) {
@@ -285,7 +283,6 @@ public class MovePenAndPasture extends Herd {
                         }
                 }
                 catch (Exception e){
-                    System.out.println("aaaaa");
                     pastureContent.click();
 
                 }
@@ -357,7 +354,7 @@ public class MovePenAndPasture extends Herd {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Move']"))).click();
 
         //move successfully pop up
-        WebElement popUp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Animal')]")));
+        WebElement popUp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[ends-with(@content-desc,'Successfully')]")));
 
         System.out.println(popUp.getAttribute("content-desc"));
         System.out.println("============================================================");
@@ -367,8 +364,8 @@ public class MovePenAndPasture extends Herd {
     public void singleMove() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-//        Thread.sleep(1000);
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Total Animals')]"))).click();
+        Thread.sleep(1000);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Total Animals')]"))).click();
         //pen content
         Thread.sleep(1000);
         WebDriverWait wait1=new WebDriverWait(driver,Duration.ofSeconds(5));
@@ -565,20 +562,7 @@ public class MovePenAndPasture extends Herd {
         //
 
         }
-
-//        @Test
-        public void check() throws InterruptedException {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Animal')]"))).click();
-
-            Thread.sleep(5000);
-            WebElement penContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index=1])[4]")));
-
-            String under = penContent.getAttribute("content-desc");
-            String[] line = under.split("\\r?\\n");
-            System.out.println(line[25]);
-
-        }
+        //add script search bar value
+        //pasture was under transfer script is add
 
     }
