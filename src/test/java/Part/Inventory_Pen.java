@@ -126,6 +126,7 @@ public class Inventory_Pen extends Herd{
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
 
+
     @Test(priority = 1)
     public void editPen() throws InterruptedException {
 
@@ -286,6 +287,8 @@ public class Inventory_Pen extends Herd{
         String deleteConfirmContent = deleteConfirm.getAttribute("content-desc");
         String[] lineWord = deleteConfirmContent.split("\\r?\\n");
         System.out.println(lineWord[0]);
+
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
 
     }
 }

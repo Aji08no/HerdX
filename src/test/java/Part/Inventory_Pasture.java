@@ -290,5 +290,7 @@ public class Inventory_Pasture extends Herd{
         String[] lineWord = deleteConfirmContent.split("\\r?\\n");
         System.out.println(lineWord[0]);
 
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+
     }
 }
