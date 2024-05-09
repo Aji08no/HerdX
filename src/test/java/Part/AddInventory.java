@@ -22,6 +22,7 @@ import java.util.Random;
 
 public class AddInventory extends Herd {
 
+     String getTagId="";
     @Test(priority = 0,enabled = true)
     public void createSingleTag() throws InterruptedException, IOException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
@@ -524,7 +525,7 @@ public class AddInventory extends Herd {
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
 
-    @Test(enabled = true)
+    @Test(priority = 1,enabled = true)
     public void selectThreeCommonAndSpecific() throws InterruptedException, IOException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -814,15 +815,11 @@ public class AddInventory extends Herd {
     }
 
 
-//    @Test
-    public void check() throws InterruptedException, IOException {
+    @Test(priority = 2)
+    public void withOutCommonAndSpecificInformation() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         WebDriverWait wait1=new WebDriverWait(driver,Duration.ofSeconds(5));
-        TouchAction touchAction = new TouchAction(driver);
-        String path="C:\\Users\\E-7\\IdeaProjects\\HerdX\\src\\main\\resources\\Imformation.properties";
-        FileInputStream file=new FileInputStream(path);
-        Properties pro=new Properties();
-        pro.load(file);
+
         Thread.sleep(5000);
         WebElement totalAnimals = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@class='android.widget.ImageView'])[5]")));
         //driver.findElement(By.xpath("(//*[@class='android.widget.ImageView'])[5]")).click();
@@ -845,105 +842,111 @@ public class AddInventory extends Herd {
         //Manual Entry
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Manual Entry')]"))).click();
         //Manual click
-        Thread.sleep(4000);
-        //click pen/pasture
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen / Pasture']"))).click();
-        //click weight
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Weight']"))).click();
-        //click sex/type
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Sex / Type']"))).click();
-        //click breeder
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Breeder']"))).click();
-        //click lot id
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Lot Id']"))).click();
-        //click breed
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Breed']"))).click();
-        //click sire
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Sire']"))).click();
-        //click dam
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Dam']"))).click();
-        //Click Treatment
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Treatments']"))).click();
-        //click receiving
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Date Received']"))).click();
-        //click purchase date
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Purchase Date']"))).click();
-        //purchase price
-        touchAction.press(PointOption.point(469, 1885))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
-                .moveTo(PointOption.point(519, 547))
-                .release()
-                .perform();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Purchase Price']"))).click();
-        //order buyer
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Order Buyer']"))).click();
         // Right Arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@index=3])[2]"))).click();
+        Thread.sleep(200);
+        //right arrow
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
 
-        //select pen/pasture
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@content-desc='Select'])[1]"))).click();
-        try {
-            WebElement penContent = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]")));
-            if (penContent.isDisplayed()) {
-                penContent.click();
-            }
-        }
-        catch (Exception e) {
+        try{
+            //EPC Prefix
+            wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'No tags assigned to this organization')]")));
+            System.out.println("No tags assigned to this organization! Please contact HerdX support.");
+            //back arrow
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
+
+            //close pop up
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Close']"))).click();
+            driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        } catch (Exception e) {
             e.getMessage();
-            //plus icon
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='2'])[1]"))).click();
-            //add pen/pasture
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Add Pen / Pasture']"))).click();
-            //enter add pasture
-            WebElement enterPName = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
-            enterPName.click();
-            Thread.sleep(100);
-            enterPName.sendKeys("Titans");
-            driver.hideKeyboard();
-            //pasture
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
-            //save
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+        }
+        //EPC Prefix
+        wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
+        //EPC Prefix dropdown select
+        Thread.sleep(500);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='E26878434']"))).click();
+        //select
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.Button)[3]"))).click();
+        //select dropDown
+        Thread.sleep(100);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='99977149481']"))).click();
+        //enter tag
+        Thread.sleep(500);
+        Random r = new Random();
+        int rNumber = r.nextInt(100, 999);
+        String tagId = "5" + rNumber;
+        WebElement enter = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@index='1'])[3]")));
+        enter.click();
+        Thread.sleep(100);
+        enter.sendKeys(tagId);
+        driver.hideKeyboard();
+        try {
+            boolean condition = false;
 
-            //try
-            try {
-                wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Added Successfully')]")));
-            }
-            catch (Exception e1){
-                boolean addCondition = true;
-                while (addCondition){
-                    WebElement editText = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
-                    if (editText.isDisplayed()){
-                        editText.click();
-                        Thread.sleep(200);
-                        editText.clear();
-                        Random r=new Random();
-                        int rNumber = r.nextInt(0, 99);
-                        Thread.sleep(100);
-                        editText.sendKeys("Titans"+rNumber);
-                        driver.hideKeyboard();
-
-                        //pasture
-                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
-                        //save
-                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
-
-                        try {
-                            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Enclosure Name Already Exists')]")));
-                        }catch (Exception e2){
-                            addCondition = false;
-                        }
-
-                    }
-
+            while (!condition) {
+                //view summary
+                WebElement viewButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='View Summary']")));
+                String summary = viewButton.getAttribute("enabled");
+                if (summary.equals("false")) {
+                    enter.click();
+                    Thread.sleep(200);
+                    enter.clear();
+                    int rNumber2 = r.nextInt(100, 999);
+                    String tagId2 = "4" + rNumber2;
+                    getTagId=tagId2;
+                    enter.sendKeys(tagId2);
+                    driver.hideKeyboard();
+                } else {
+                    condition = true;
                 }
             }
+        } catch (Exception e) {
+            e.getMessage();
         }
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]"))).click();
-        //done
-        Thread.sleep(200);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Done']"))).click();
+        //view summary
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='View Summary']"))).click();
 
+        //add animals to inventory
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Add Animals to Inventory']"))).click();
+        //yes
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Yes']"))).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'1 Animal Added to Inventory Successfully')]")));
+        System.out.println("Successfully created new tag");
+
+        System.out.println("Created tag id : "+getTagId);
+
+        //unassigned
+        try{
+            Thread.sleep(200);
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Unassigned') and @index='2']"))).click();
+        }
+        catch (Exception e){
+            Thread.sleep(200);
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Unassigned') and @index='2']"))).click();
+        }
+
+        //unassigned content
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[contains(@content-desc,'Unassigned') and @index='0']"))).click();
+
+        //search bar
+       WebElement searchBar=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='1'])[2]")));
+        searchBar.click();
+        Thread.sleep(200);
+        searchBar.sendKeys(getTagId);
+        driver.hideKeyboard();
+
+        WebElement unassignedContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[15]")));
+        String content = unassignedContent.getAttribute("content-desc");
+        String[] lineWord = content.split("\\r?\\n");
+
+        if (lineWord[0].substring(4).equals(getTagId)){
+            //back arrow
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
+
+        }
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
 
 }

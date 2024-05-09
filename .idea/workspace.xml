@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a9e55852-d396-4d5d-a752-1c76736bf03e" name="Changes" comment="first">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Part/Inventory_Pasture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/Inventory_Pasture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Part/Inventory_Pen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/Inventory_Pen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/AddInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/AddInventory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +45,7 @@
     "TestNG.AddInventory.createSingleTag.executor": "Run",
     "TestNG.AddInventory.executor": "Run",
     "TestNG.AddInventory.selectThreeCommonAndSpecific.executor": "Run",
+    "TestNG.AddInventory.withOutCommonAndSpecificInformation.executor": "Run",
     "TestNG.AllDeleteTag.executor": "Run",
     "TestNG.AssignedReaders.executor": "Run",
     "TestNG.BulkTreat.addBulkTreat.executor": "Run",
@@ -170,7 +170,25 @@
       <recent name="Task" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Inventory_Pasture">
+  <component name="RunManager" selected="TestNG.AddInventory.withOutCommonAndSpecificInformation">
+    <configuration name="AddInventory.withOutCommonAndSpecificInformation" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.AddInventory" />
+      <option name="METHOD_NAME" value="withOutCommonAndSpecificInformation" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Inventory_Pasture" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
@@ -223,23 +241,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovePenAndPasture" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HerdX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Part.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Part" />
-      <option name="MAIN_CLASS_NAME" value="Part.MovePenAndPasture" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MovePenAndPasture.singleMove" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
@@ -260,11 +261,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.AddInventory.withOutCommonAndSpecificInformation" />
         <item itemvalue="TestNG.Inventory_Pasture" />
         <item itemvalue="TestNG.Inventory_Pen" />
         <item itemvalue="TestNG.Inventory_Pasture.createPasture" />
         <item itemvalue="TestNG.MovePenAndPasture.singleMove" />
-        <item itemvalue="TestNG.MovePenAndPasture" />
       </list>
     </recent_temporary>
   </component>
