@@ -317,6 +317,7 @@ public class BulkTreat extends Herd{
             Thread.sleep(200);
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
 
+            Thread.sleep(500);
             //plus icon create pen
             wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='1'])[2]"))).click();
             //add pen/pasture
