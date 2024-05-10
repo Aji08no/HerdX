@@ -244,7 +244,7 @@ public class AllDeleteTag extends Herd {
             //
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Scrim']"))).click();
             //back arrow
-            Thread.sleep(200);
+            Thread.sleep(500);
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
 
             //plus icon create pen
@@ -414,8 +414,10 @@ public class AllDeleteTag extends Herd {
 
                 penContent1.click();
                 //menu dot
+                Thread.sleep(200);
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
                 //select animals-manual
+                Thread.sleep(200);
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Select Animals - M')]"))).click();
 
             } catch (Exception e1) {
