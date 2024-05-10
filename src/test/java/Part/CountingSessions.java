@@ -129,6 +129,8 @@ public class CountingSessions extends Herd {
         //pop up delete
         Thread.sleep(200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Delete']"))).click();
+        //back arrow
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
     }
 
 }
