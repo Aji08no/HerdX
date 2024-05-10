@@ -48,8 +48,8 @@ public class AddInventory extends Herd {
             element.click();
         }
         //Add animal to inventory
-        Thread.sleep(500);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@index='0' and @class='android.widget.ImageView']"))).click();
+        Thread.sleep(800);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@index='0' and @class='android.widget.ImageView']"))).click();
 
         //Manual Entry
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Manual Entry')]"))).click();
@@ -391,7 +391,7 @@ public class AddInventory extends Herd {
             e.getMessage();
         }
         //getTagID
-        WebElement getTagID = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[2]")));
+        WebElement getTagID = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='1'])[2]")));
         String verifyTagID = getTagID.getAttribute("content-desc");
         //select pen/pasture
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
@@ -427,14 +427,14 @@ public class AddInventory extends Herd {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Done']"))).click();
 
         //secondary id
-        WebElement enterSecdaryId = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
+        WebElement enterSecdaryId = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='3']")));
         enterSecdaryId.click();
         enterSecdaryId.sendKeys(pro.getProperty("secondaryID"));
         driver.hideKeyboard();
 
         //usda tag
 
-        WebElement enterUsdaTag = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='3']")));
+        WebElement enterUsdaTag = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='4']")));
         enterUsdaTag.click();
         enterUsdaTag.sendKeys(pro.getProperty("USDA840Tag"));
         driver.hideKeyboard();
@@ -738,17 +738,17 @@ public class AddInventory extends Herd {
                 e.getMessage();
             }
             //getTagID
-            WebElement getTagID = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[2]")));
+            WebElement getTagID = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='1'])[2]")));
             String verifyTagID = getTagID.getAttribute("content-desc");
             //secondary id
-            WebElement enterSecdaryId = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='1']")));
+            WebElement enterSecdaryId = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
             enterSecdaryId.click();
             enterSecdaryId.sendKeys(pro.getProperty("secondaryID"));
             driver.hideKeyboard();
 
             //usda tag
 
-            WebElement enterUsdaTag = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
+            WebElement enterUsdaTag = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='3']")));
             enterUsdaTag.click();
             enterUsdaTag.sendKeys(pro.getProperty("USDA840Tag"));
             driver.hideKeyboard();
