@@ -220,8 +220,7 @@ public class MultipleAddToInventory2 extends Herd{
             e.getMessage();
         }
         //EPC Prefix
-        wait.
-                until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
         //EPC Prefix dropdown select
         Thread.sleep(500);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='E26878430']"))).click();//4last

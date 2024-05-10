@@ -1,10 +1,14 @@
 <suite name="suite">
     <listeners>
-        <listener class-name="Task.ListenersTasks"></listener>
+        <listener class-name="Part.Listener"/>
     </listeners>
     <test name="test">
         <classes>
-            <class name="Task.OfflinePenAndParse"></class>
+            <class name="Part.AddInventory"></class>
+<!--            <class name="Part.AllDeleteTag"></class>-->
+<!--            <class name="Part.BulkTreat"></class>-->
+<!--            <class name="Part.CountingSessions"></class>-->
+<!--            <class name="Part.EditAnimalDetails"></class>-->
         </classes>
     </test>
 </suite>
