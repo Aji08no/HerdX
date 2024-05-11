@@ -140,6 +140,8 @@ public class AddInventory extends Herd {
                         try {
                             wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Enclosure Name Already Exists')]")));
                         }catch (Exception e2){
+                            //pen content
+                            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]"))).click();
                             addCondition = false;
                         }
 
@@ -148,7 +150,6 @@ public class AddInventory extends Herd {
                 }
             }
         }
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]"))).click();
         //done
         Thread.sleep(200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Done']"))).click();
