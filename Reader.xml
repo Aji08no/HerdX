@@ -1,0 +1,14 @@
+<suite name="suite">
+    <listeners>
+        <listener class-name="Reader.Listener"/>
+    </listeners>
+    <test name="test">
+        <classes>
+            <class name="Reader.Add_to_inventory_reader"></class>
+            <class name="Reader.countingSession_reader"></class>
+            <class name="Reader.selectMultipleHealthReader"></class>
+            <class name="Reader.selectMultipleMoveReader"></class>
+            <class name="Reader.selectMultipleTreatReader"></class>
+        </classes>
+    </test>
+</suite>
