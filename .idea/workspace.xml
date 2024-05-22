@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a9e55852-d396-4d5d-a752-1c76736bf03e" name="Changes" comment="first">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Extent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExtentReport.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExtentReport10.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Part/AddInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/AddInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/ExtentReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/ExtentReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/Herd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/Herd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/MultipleAddToInventory2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/MultipleAddToInventory2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +58,7 @@
     "TestNG.AssignedReaders.executor": "Run",
     "TestNG.BulkTreat.addBulkTreat.executor": "Run",
     "TestNG.BulkTreat.executor": "Run",
+    "TestNG.C:/Users/E-7/IdeaProjects/HerdX/AddToInventory.xml.executor": "Run",
     "TestNG.C:/Users/E-7/IdeaProjects/HerdX/Demo.xml.executor": "Run",
     "TestNG.C:/Users/E-7/IdeaProjects/HerdX/HomePage.xml.executor": "Run",
     "TestNG.C:/Users/E-7/IdeaProjects/HerdX/TestNG.xml.executor": "Run",
@@ -181,7 +188,7 @@
       <recent name="Task" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.AddInventory">
+  <component name="RunManager" selected="TestNG.MultipleAddToInventory2">
     <configuration name="AddInventory" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
@@ -199,34 +206,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="countingSession_reader.countingSession" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="C:/Users/E-7/IdeaProjects/HerdX/AddToInventory.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Reader.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Reader" />
-      <option name="MAIN_CLASS_NAME" value="Reader.countingSession_reader" />
-      <option name="METHOD_NAME" value="countingSession" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/AddToInventory.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="selectMultipleHealthReader" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="C:/Users/E-7/IdeaProjects/HerdX/TestNG.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/TestNG.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MultipleAddToInventory" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Reader.*" />
+          <option name="PATTERN" value="Part.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Reader" />
-      <option name="MAIN_CLASS_NAME" value="Reader.selectMultipleHealthReader" />
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.MultipleAddToInventory" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -234,34 +243,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="selectMultipleHealthReader.selectAllTags" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MultipleAddToInventory2" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Reader.*" />
+          <option name="PATTERN" value="Part.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Reader" />
-      <option name="MAIN_CLASS_NAME" value="Reader.selectMultipleHealthReader" />
-      <option name="METHOD_NAME" value="selectAllTags" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="selectMultipleMoveReader" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HerdX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Reader.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Reader" />
-      <option name="MAIN_CLASS_NAME" value="Reader.selectMultipleMoveReader" />
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.MultipleAddToInventory2" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -271,11 +262,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.MultipleAddToInventory2" />
+        <item itemvalue="TestNG.MultipleAddToInventory" />
+        <item itemvalue="TestNG.C:/Users/E-7/IdeaProjects/HerdX/AddToInventory.xml" />
+        <item itemvalue="TestNG.C:/Users/E-7/IdeaProjects/HerdX/TestNG.xml" />
         <item itemvalue="TestNG.AddInventory" />
-        <item itemvalue="TestNG.selectMultipleMoveReader" />
-        <item itemvalue="TestNG.selectMultipleHealthReader" />
-        <item itemvalue="TestNG.selectMultipleHealthReader.selectAllTags" />
-        <item itemvalue="TestNG.countingSession_reader.countingSession" />
       </list>
     </recent_temporary>
   </component>

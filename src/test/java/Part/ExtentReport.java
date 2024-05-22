@@ -9,7 +9,7 @@ public class ExtentReport {
 
     public static ExtentReports report(){
         String path= System.getProperty("user.dir")+"//ExtentReport10.html";
-        ExtentSparkReporter spark=new ExtentSparkReporter("may10.html");
+        ExtentSparkReporter spark=new ExtentSparkReporter("ExtentReport.html");
 
         spark.config().setDocumentTitle("Test Script");
         spark.config().setReportName("HerdX App");

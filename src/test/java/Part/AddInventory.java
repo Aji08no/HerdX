@@ -504,6 +504,7 @@ public class AddInventory extends Herd {
         sEnter.sendKeys(verifyTagID);
         driver.hideKeyboard();
         //tag
+        Thread.sleep(200);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[15]"))).click();
         System.out.println("Tag Id: "+verifyTagID);
         //tag details
@@ -519,7 +520,7 @@ public class AddInventory extends Herd {
 
         //back arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
-
+        Thread.sleep(200);
         //back arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='0']"))).click();
 

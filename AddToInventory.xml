@@ -1,0 +1,10 @@
+<suite name="Manual suite">
+    <listeners>
+        <listener class-name="Part.Listener"/>
+    </listeners>
+    <test name="Manual test">
+        <classes>
+            <class name="Part.AddInventory"/>
+        </classes>
+    </test>
+</suite>

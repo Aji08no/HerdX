@@ -94,7 +94,7 @@ public class Herd {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@content-desc='Update Later']"))).click();
         }
         catch (Exception e){
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@content-desc='Update Later']"))).click();
+            e.getMessage();
 
         }
 

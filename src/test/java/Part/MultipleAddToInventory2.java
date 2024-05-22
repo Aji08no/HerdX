@@ -37,12 +37,12 @@ public class MultipleAddToInventory2 extends Herd{
     @Test(priority = 0)
     public  void selectParticularCommonAndSpecific() throws InterruptedException, IOException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
-        WebDriverWait wait1=new WebDriverWait(driver,Duration.ofSeconds(5));
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(5));
         Thread.sleep(5000);
         TouchAction touchAction = new TouchAction(driver);
-        path="C:\\Users\\E-7\\IdeaProjects\\HerdX\\src\\main\\resources\\MultipleAddToInventory.properties";
-        file=new FileInputStream(path);
-        pro=new Properties();
+        path = "C:\\Users\\E-7\\IdeaProjects\\HerdX\\src\\main\\resources\\MultipleAddToInventory.properties";
+        file = new FileInputStream(path);
+        pro = new Properties();
         pro.load(file);
         Thread.sleep(3000);
         WebElement totalAnimals = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@class='android.widget.ImageView'])[5]")));
@@ -64,7 +64,7 @@ public class MultipleAddToInventory2 extends Herd{
             Thread.sleep(200);
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@index='0' and @class='android.widget.ImageView']"))).click();
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             Thread.sleep(200);
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@index='0' and @class='android.widget.ImageView']"))).click();
         }
@@ -90,9 +90,9 @@ public class MultipleAddToInventory2 extends Herd{
             WebElement penContent = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]")));
             String penNameGet = penContent.getAttribute("content-desc");
             String[] line = penNameGet.split("\\r?\\n");
-            existingPenName=line[0];
+            existingPenName = line[0];
             if (penContent.isDisplayed()) {
-                System.out.println("Pen Name : "+line[0]);
+                System.out.println("Pen Name : " + line[0]);
                 penContent.click();
             }
         }
@@ -119,16 +119,16 @@ public class MultipleAddToInventory2 extends Herd{
             }
             catch (Exception e1){
                 boolean addCondition = true;
-                while (addCondition){
+                while (addCondition) {
                     WebElement editText = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
-                    if (editText.isDisplayed()){
+                    if (editText.isDisplayed()) {
                         editText.click();
                         Thread.sleep(200);
                         editText.clear();
-                        Random r=new Random();
+                        Random r = new Random();
                         int rNumber = r.nextInt(0, 99);
                         Thread.sleep(100);
-                        editText.sendKeys("Titans"+rNumber);
+                        editText.sendKeys("Titans" + rNumber);
                         driver.hideKeyboard();
 
                         //pasture
@@ -138,7 +138,7 @@ public class MultipleAddToInventory2 extends Herd{
 
                         try {
                             wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Enclosure Name Already Exists')]")));
-                        }catch (Exception e2){
+                        } catch (Exception e2) {
                             addCondition = false;
                         }
 
@@ -149,8 +149,8 @@ public class MultipleAddToInventory2 extends Herd{
             WebElement penContent = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]")));
             String penNameGet = penContent.getAttribute("content-desc");
             String[] line = penNameGet.split("\\r?\\n");
-            newPenName=line[0];
-            System.out.println("Pen Name : "+line[0]);
+            newPenName = line[0];
+            System.out.println("Pen Name : " + line[0]);
             penContent.click();
         }
 //      wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]"))).click();
@@ -176,7 +176,7 @@ public class MultipleAddToInventory2 extends Herd{
         WebElement sexType = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[14]")));
         sexType.click();
         String aSexType = sexType.getAttribute("content-desc");
-        Type=aSexType;
+        Type = aSexType;
         //back arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
 
@@ -206,7 +206,7 @@ public class MultipleAddToInventory2 extends Herd{
         //right arrow
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
 
-        try{
+        try {
             //EPC Prefix
             wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'No tags assigned to this organization')]")));
             System.out.println("No tags assigned to this organization! Please contact HerdX support.");
@@ -240,14 +240,14 @@ public class MultipleAddToInventory2 extends Herd{
         Random r = new Random();
         int rNumber = r.nextInt(902, 946);
         Thread.sleep(200);
-        fromEnter.sendKeys("0"+rNumber);
+        fromEnter.sendKeys("0" + rNumber);
 
         //try  pop up this tag is already existing
         try {
             boolean condition = false;
 
-            while (!condition){
-                try{
+            while (!condition) {
+                try {
                     wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@content-desc='This Tag Already Exists In Your Inventory ']")));
                     //from enter
                     WebElement fromEnter1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'From')]//android.widget.EditText[@index='0']")));
@@ -311,10 +311,10 @@ public class MultipleAddToInventory2 extends Herd{
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='View Summary']"))).click();
 
         int count = Integer.parseInt(createTags);
-        noTagsCount=count;
-        ArrayList<String> tagsList=new ArrayList<String>();
-        createdTagsList= tagsList;
-        for (int i=0;i < count;i++) {
+        noTagsCount = count;
+        ArrayList<String> tagsList = new ArrayList<String>();
+        createdTagsList = tagsList;
+        for (int i = 0; i < count; i++) {
             //add info
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0']//*[@content-desc='Add Info'])[1]"))).click();
             Thread.sleep(500);
@@ -355,7 +355,7 @@ public class MultipleAddToInventory2 extends Herd{
 
             //save
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
-            System.out.println("created tagId "+tagIncrease+" : " + createTagId);
+            System.out.println("created tagId " + tagIncrease + " : " + createTagId);
         }
         Thread.sleep(500);
         //add animals to inventory
@@ -366,31 +366,23 @@ public class MultipleAddToInventory2 extends Herd{
         //created pop up
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Successfully')]")));
         System.out.println("created successfully");
-    }
 
-
-    @Test(priority = 1)
-    public void verifyCreatedMultipleTags() throws InterruptedException {
-
-        Thread.sleep(1500);
-
-        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
         //pen content
         WebElement penName = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
         String verifyPenName = penName.getAttribute("content-desc");
-        String[] line = verifyPenName.split("\\r?\\n");
+        String[] lineV = verifyPenName.split("\\r?\\n");
 
-        try{
-            Assert.assertEquals(line[0],existingPenName);
+        try {
+            Assert.assertEquals(lineV[0], existingPenName);
             System.out.println("Existing pen");
             penName.click();
-        }catch(Exception e){
-            Assert.assertEquals(line[0],newPenName);
+        } catch (Exception e) {
+            Assert.assertEquals(lineV[0], newPenName);
             System.out.println("New pen");
             penName.click();
         }
-        for (int j=0;j<noTagsCount;j++){
-            System.out.println("Tag id : "+createdTagsList.get(j));
+        for (int j = 0; j < noTagsCount; j++) {
+            System.out.println("Tag id : " + createdTagsList.get(j));
             //tag search bar
             WebElement tagS = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='1'])[2]")));
             Thread.sleep(500);
@@ -421,17 +413,17 @@ public class MultipleAddToInventory2 extends Herd{
 
 
             //secondary id
-            Assert.assertEquals(lines3[3],pro.getProperty("secondaryID"));
-            System.out.println("Actual secondaryId :"+lines3[3]+"  "+"Expected secondaryId : "+pro.getProperty("secondaryID"));
+            Assert.assertEquals(lines3[3], pro.getProperty("secondaryID"));
+            System.out.println("Actual secondaryId :" + lines3[3] + "  " + "Expected secondaryId : " + pro.getProperty("secondaryID"));
             //USDA
-            Assert.assertEquals(lines3[5],pro.getProperty("USDA840Tag"));
-            System.out.println("Actual USDA840Tag :"+lines3[5]+"  "+"Expected USDA840Tag : "+pro.getProperty("USDA840Tag"));
+            Assert.assertEquals(lines3[5], pro.getProperty("USDA840Tag"));
+            System.out.println("Actual USDA840Tag :" + lines3[5] + "  " + "Expected USDA840Tag : " + pro.getProperty("USDA840Tag"));
             //breeder
-            Assert.assertEquals(lines3[7],pro.getProperty("breeder"));
-            System.out.println("Actual breeder :"+lines3[7]+"  "+"Expected breeder : "+pro.getProperty("breeder"));
+            Assert.assertEquals(lines3[7], pro.getProperty("breeder"));
+            System.out.println("Actual breeder :" + lines3[7] + "  " + "Expected breeder : " + pro.getProperty("breeder"));
             //sex type
-            Assert.assertEquals(lines3[25],Type);
-            System.out.println("Actual sexType :"+lines3[25]+"  "+"Expected sexType : "+Type);
+            Assert.assertEquals(lines3[25], Type);
+            System.out.println("Actual sexType :" + lines3[25] + "  " + "Expected sexType : " + Type);
         }
         Thread.sleep(200);
         //back arrow
