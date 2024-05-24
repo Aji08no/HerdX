@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a9e55852-d396-4d5d-a752-1c76736bf03e" name="Changes" comment="first">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MultipleAddToInventory.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MultipleAddToInventory.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +150,7 @@
     "TestNG.SelectAllCommonAndSpecificInformation_Toggle.executor": "Run",
     "TestNG.SelectAllCommonAndSpecificInformation_Toggle.tagId.executor": "Run",
     "TestNG.SelectAllCommonAndSpecificInformation_Toggle.verifyAddTagId.executor": "Run",
+    "TestNG.SingleAndMultipleTag.executor": "Run",
     "TestNG.TaskFunctionality.executor": "Run",
     "TestNG.TasksFilter.executor": "Run",
     "TestNG.TreatFilter.executor": "Run",
@@ -182,21 +184,18 @@
       <recent name="Task" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.MultipleAddToInventory3">
-    <configuration name="C:/Users/E-7/IdeaProjects/HerdX/AddToInventory.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.SingleAndMultipleTag">
+    <configuration name="Inventory_Pen" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/AddToInventory.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="C:/Users/E-7/IdeaProjects/HerdX/TestNG.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HerdX" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/TestNG.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.Inventory_Pen" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -254,13 +253,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SingleAndMultipleTag" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.SingleAndMultipleTag" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.SingleAndMultipleTag" />
+        <item itemvalue="TestNG.Inventory_Pen" />
         <item itemvalue="TestNG.MultipleAddToInventory3" />
         <item itemvalue="TestNG.MultipleAddToInventory" />
         <item itemvalue="TestNG.MultipleAddToInventory2" />
-        <item itemvalue="TestNG.C:/Users/E-7/IdeaProjects/HerdX/AddToInventory.xml" />
-        <item itemvalue="TestNG.C:/Users/E-7/IdeaProjects/HerdX/TestNG.xml" />
       </list>
     </recent_temporary>
   </component>
