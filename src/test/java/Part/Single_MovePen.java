@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Random;
 
-public class Single_MovePenAndPasture extends  Herd{
+public class Single_MovePen extends  Herd{
 
     String moveTagID="";
 
@@ -386,7 +386,7 @@ public class Single_MovePenAndPasture extends  Herd{
             //move to pen / pasture
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Move to Pen / Pasture']"))).click();
         }
-        System.out.println("move tag id : "+moveTagID);
+        System.out.println("move tag id : "+moveTagIDe);
         //select
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
         //pasture tab
@@ -401,7 +401,7 @@ public class Single_MovePenAndPasture extends  Herd{
                 pastureContent.click();
                 System.out.println("PastureName : " + lines[0]);
                 pastureNameActual=lines[0];
-                System.out.println("Before move to PastureTag : " + lines[1]);
+                System.out.println("Before move to PastureTag count : " + lines[1]);
             }
 
         }
@@ -459,7 +459,7 @@ public class Single_MovePenAndPasture extends  Herd{
             String content = pastureContent.getAttribute("content-desc");
             String[] lines = content.split("\\r?\\n");
             System.out.println("PastureName : " + lines[0]);
-            System.out.println("Before move to PastureTag : " + lines[1]);
+            System.out.println("Before move to PastureTag count : " + lines[1]);
             if (pastureContent.isDisplayed()){
                 pastureContent.click();
             }
@@ -476,7 +476,7 @@ public class Single_MovePenAndPasture extends  Herd{
         WebElement pastureContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
         String content = pastureContent.getAttribute("content-desc");
         String[] lines = content.split("\\r?\\n");
-        System.out.println("After move to PastureTag : " + lines[1]);
+        System.out.println("After move to PastureTag count : " + lines[1]);
 
         //pasture content
         WebElement content1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
