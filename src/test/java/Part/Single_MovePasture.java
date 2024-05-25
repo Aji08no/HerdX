@@ -12,14 +12,14 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Random;
 
-public class Single_MovePen extends  Herd{
+public class Single_MovePasture extends  Herd{
 
     String moveTagID="";
 
-    String pastureNameActual="";
+    String penNameActual="";
 
     @Test(priority = 0,enabled = true)
-    public void movePen_To_Pasture() throws InterruptedException {
+    public void movePasture_To_Pen() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(8));
@@ -29,6 +29,8 @@ public class Single_MovePen extends  Herd{
         String getLocationContent = location.getAttribute("content-desc");
         String[] locationContent = getLocationContent.split("\\r?\\n");
         System.out.println("Location name : "+locationContent[0]);
+
+        //total animals
         try {
             WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Total Animals')]")));
             element.click();
@@ -38,12 +40,22 @@ public class Single_MovePen extends  Herd{
         }
         Thread.sleep(2000);
 
+        try{
+            //pasture tab
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[contains(@content-desc,'Pastures')])[3]"))).click();
+
+        }
+        catch (StaleElementReferenceException s){
+            //pasture tab
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[contains(@content-desc,'Pastures')])[3]"))).click();
+
+        }
         try {
-            //pen content
-            WebElement penContent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
-            String content2 = penContent.getAttribute("content-desc");
+            //pasture content
+            WebElement pastureContent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
+            String content2 = pastureContent.getAttribute("content-desc");
             String[] lines2 = content2.split("\\r?\\n");
-            if (penContent.isDisplayed()){
+            if (pastureContent.isDisplayed()){
                 System.out.println("Tags are in a page");
             }
         }
@@ -58,8 +70,8 @@ public class Single_MovePen extends  Herd{
             Thread.sleep(100);
             enter.sendKeys("Cartoon");
             driver.hideKeyboard();
-            //pen
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+            //pasture
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
             //save
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
             //try
@@ -81,7 +93,7 @@ public class Single_MovePen extends  Herd{
                         driver.hideKeyboard();
 
                         //pasture
-                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
                         //save
                         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
 
@@ -96,16 +108,16 @@ public class Single_MovePen extends  Herd{
                 }
             }
         }
-        //pen tag
-        WebElement penContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
-        String content2 = penContent.getAttribute("content-desc");
+        //pasture tag
+        WebElement pastureContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
+        String content2 = pastureContent.getAttribute("content-desc");
         String[] lines2 = content2.split("\\r?\\n");
-        System.out.println("PenName : " + lines2[0]);
+        System.out.println("PastureName : " + lines2[0]);
         System.out.println("No.of.tags : " + lines2[1]);
         String totalTag = lines2[1];
 
         if (Integer.parseInt(totalTag) > 0){
-            penContent.click();
+            pastureContent.click();
         }
         else {
             //plus icon
@@ -126,7 +138,9 @@ public class Single_MovePen extends  Herd{
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
             //select pen/pasture
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@content-desc='Select'])[1]"))).click();
-            //select pen
+            //pasture tab
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Pastures')]"))).click();
+            //select pasture
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]"))).click();
             //done
             Thread.sleep(200);
@@ -186,7 +200,10 @@ public class Single_MovePen extends  Herd{
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Add Animals to Inventory']"))).click();
                             //yes
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Yes']"))).click();
-                            //pen
+                            //pasture tab
+                            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[contains(@content-desc,'Pastures')])[3]"))).click();
+
+                            //pasture
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]"))).click();
                             condition=true;
                         }
@@ -201,12 +218,11 @@ public class Single_MovePen extends  Herd{
             }
         }
         //tag details
-        Thread.sleep(1000);
+        Thread.sleep(500);
         WebElement tagD = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[14]")));
         String tagValue = tagD.getAttribute("content-desc");
         Thread.sleep(200);
         String[] line = tagValue.split("\\r?\\n");
-        Thread.sleep(200);
         String moveTagIDe = line[0].substring(4);
         moveTagID=moveTagIDe;
         //tag menu dot
@@ -234,14 +250,14 @@ public class Single_MovePen extends  Herd{
             int outR = ran.nextInt(0,10);
             WebElement enter = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
             enter.click();
-            String penName = "0aa"+outR;
+            String pastureName = "0aa"+outR;
 //            transferPenName=penName;
             Thread.sleep(200);
 //            enter.sendKeys(transferPenName);
-            enter.sendKeys(penName);
+            enter.sendKeys(pastureName);
             driver.hideKeyboard();
-            //pen
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+            //pasture
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
             //save
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
             //try
@@ -259,15 +275,15 @@ public class Single_MovePen extends  Herd{
                         Random r=new Random();
                         int rNumber = r.nextInt(0, 99);
                         Thread.sleep(100);
-                        String penName2 = "0aa"+outR;
+                        String pastureName2 = "0aa"+outR;
 //                        transferPenName=penName2;
                         Thread.sleep(200);
 //                        enter.sendKeys(transferPenName);
-                        enter.sendKeys(penName2);
+                        enter.sendKeys(pastureName2);
                         driver.hideKeyboard();
 
-                        //pen
-                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+                        //pasture
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
                         //save
                         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
 
@@ -300,7 +316,12 @@ public class Single_MovePen extends  Herd{
 
             //select pen/pasture
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@content-desc='Select'])[1]"))).click();
-            //select pen
+
+            //pasture tab
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[contains(@content-desc,'Pastures')])[3]"))).click();
+
+
+            //select pasture
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]"))).click();
             //done
             Thread.sleep(200);
@@ -361,7 +382,10 @@ public class Single_MovePen extends  Herd{
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Add Animals to Inventory']"))).click();
                             //yes
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Yes']"))).click();
-                            //pen
+                            //pasture tab
+                            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Pastures')]"))).click();
+
+                            //pasture
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]"))).click();
                             condition=true;
                         }
@@ -375,11 +399,12 @@ public class Single_MovePen extends  Herd{
                 e1.getMessage();
             }
             //tag details
-            Thread.sleep(500);
+            Thread.sleep(1000);
             WebElement tagD1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[14]")));
             String tagValue1 = tagD1.getAttribute("content-desc");
             Thread.sleep(200);
             String[] line1 = tagValue1.split("\\r?\\n");
+            Thread.sleep(200);
             String moveTagID1 = line1[0].substring(4);
             moveTagID=moveTagID1;
             //menu dot
@@ -390,19 +415,17 @@ public class Single_MovePen extends  Herd{
         System.out.println("move tag id : "+moveTagIDe);
         //select
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
-        //pasture tab
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Pastures')]"))).click();
 
         try{
-            //a pas
-            WebElement pastureContent = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[2]")));
-            String content = pastureContent.getAttribute("content-desc");
+            //a pen
+            WebElement penContent = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[2]")));
+            String content = penContent.getAttribute("content-desc");
             String[] lines = content.split("\\r?\\n");
-            if (pastureContent.isDisplayed()){
-                pastureContent.click();
-                System.out.println("PastureName : " + lines[0]);
-                pastureNameActual=lines[0];
-                System.out.println("Before move to PastureTag count : " + lines[1]);
+            if (penContent.isDisplayed()){
+                penContent.click();
+                System.out.println("PenName : " + lines[0]);
+                penNameActual=lines[0];
+                System.out.println("Before move to PenTag count : " + lines[1]);
             }
 
         }
@@ -417,8 +440,8 @@ public class Single_MovePen extends  Herd{
             Thread.sleep(100);
             enterPName.sendKeys("Ninja");
             driver.hideKeyboard();
-            //pasture
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
+            //pen
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
             //save
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
 
@@ -440,8 +463,8 @@ public class Single_MovePen extends  Herd{
                         editText.sendKeys("Ninja"+rNumber);
                         driver.hideKeyboard();
 
-                        //pasture
-                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
+                        //pen
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
                         //save
                         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
 
@@ -455,15 +478,15 @@ public class Single_MovePen extends  Herd{
 
                 }
             }
-            //pasture content
-            WebElement pastureContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[2]")));
-            String content = pastureContent.getAttribute("content-desc");
+            //pen content
+            WebElement penContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[2]")));
+            String content = penContent.getAttribute("content-desc");
             String[] lines = content.split("\\r?\\n");
-            System.out.println("PastureName : " + lines[0]);
-            pastureNameActual=lines[0];
-            System.out.println("Before move to PastureTag count : " + lines[1]);
-            if (pastureContent.isDisplayed()){
-                pastureContent.click();
+            System.out.println("PenName : " + lines[0]);
+            penNameActual=lines[0];
+            System.out.println("Before move to PenTag count : " + lines[1]);
+            if (penContent.isDisplayed()){
+                penContent.click();
             }
         }
         //done
@@ -475,18 +498,18 @@ public class Single_MovePen extends  Herd{
         WebElement success = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Successfully')]")));
         System.out.println(success.getAttribute("content-desc"));
         //pasture content
-        WebElement pastureContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
-        String content = pastureContent.getAttribute("content-desc");
+        WebElement penContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
+        String content = penContent.getAttribute("content-desc");
         String[] lines = content.split("\\r?\\n");
-        System.out.println("After move to PastureTag count : " + lines[1]);
+        System.out.println("After move to PenTag count : " + lines[1]);
 
-        //pasture content
+        //pen content
         WebElement content1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
         String verifyContent1 = content1.getAttribute("content-desc");
         String[] lines1 = verifyContent1.split("\\r?\\n");
-        String pastureNameExpected = lines1[0];
+        String penNameExpected = lines1[0];
 
-        if (pastureNameExpected.equals(pastureNameActual)) {
+        if (penNameExpected.equals(penNameActual)) {
             content1.click();
         }
 
@@ -514,7 +537,7 @@ public class Single_MovePen extends  Herd{
         String moveTagVerify = lineVerify[0].substring(4);
 
         if (moveTagVerify.equals(moveTagID)){
-            System.out.println("Move pen to pasture verify successfully");
+            System.out.println("Move pen to pen verify successfully");
         }
 
         //back arrow
@@ -524,7 +547,7 @@ public class Single_MovePen extends  Herd{
     }
 
     @Test(priority = 1)
-    public void movePen_To_Unassigned() throws InterruptedException {
+    public void movePasture_To_Unassigned() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(8));
 
@@ -541,13 +564,15 @@ public class Single_MovePen extends  Herd{
             element.click();
         }
         Thread.sleep(2000);
+        //pasture tab
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[contains(@content-desc,'Pastures')])[3]"))).click();
 
         try {
-            //pen content
-            WebElement penContent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
-            String content2 = penContent.getAttribute("content-desc");
+            //pasture content
+            WebElement pastureContent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
+            String content2 = pastureContent.getAttribute("content-desc");
             String[] lines2 = content2.split("\\r?\\n");
-            if (penContent.isDisplayed()){
+            if (pastureContent.isDisplayed()){
                 System.out.println("Tags are in a page");
             }
         }
@@ -562,8 +587,8 @@ public class Single_MovePen extends  Herd{
             Thread.sleep(100);
             enter.sendKeys("Cartoon");
             driver.hideKeyboard();
-            //pen
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+            //pasture
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
             //save
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
             //try
@@ -584,8 +609,8 @@ public class Single_MovePen extends  Herd{
                         editText.sendKeys("Cartoon"+rNumber);
                         driver.hideKeyboard();
 
-                        //pen
-                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+                        //pasture
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
                         //save
                         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
 
@@ -600,16 +625,16 @@ public class Single_MovePen extends  Herd{
                 }
             }
         }
-        //pen tag
-        WebElement penContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
-        String content2 = penContent.getAttribute("content-desc");
+        //pasture tag
+        WebElement pastureContent = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
+        String content2 = pastureContent.getAttribute("content-desc");
         String[] lines2 = content2.split("\\r?\\n");
-        System.out.println("PenName : " + lines2[0]);
+        System.out.println("PastureName : " + lines2[0]);
         System.out.println("No.of.tags : " + lines2[1]);
         String totalTag = lines2[1];
 
         if (Integer.parseInt(totalTag) > 0){
-            penContent.click();
+            pastureContent.click();
         }
         else {
             //plus icon
@@ -630,7 +655,10 @@ public class Single_MovePen extends  Herd{
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']"))).click();
             //select pen/pasture
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@content-desc='Select'])[1]"))).click();
-            //select pen
+            //pasture tab
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Pastures')]"))).click();
+            //select pasture
+            Thread.sleep(200);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]"))).click();
             //done
             Thread.sleep(200);
@@ -690,7 +718,10 @@ public class Single_MovePen extends  Herd{
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Add Animals to Inventory']"))).click();
                             //yes
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Yes']"))).click();
-                            //pen
+                            //pasture tab
+                            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[contains(@content-desc,'Pastures')])[3]"))).click();
+
+                            //pasture
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]"))).click();
                             condition=true;
                         }
@@ -705,12 +736,11 @@ public class Single_MovePen extends  Herd{
             }
         }
         //tag details
-        Thread.sleep(1000);
+        Thread.sleep(500);
         WebElement tagD = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[14]")));
         String tagValue = tagD.getAttribute("content-desc");
         Thread.sleep(200);
         String[] line = tagValue.split("\\r?\\n");
-        Thread.sleep(200);
         String moveTagIDe = line[0].substring(4);
         moveTagID=moveTagIDe;
         //tag menu dot
@@ -738,14 +768,14 @@ public class Single_MovePen extends  Herd{
             int outR = ran.nextInt(0,10);
             WebElement enter = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='2']")));
             enter.click();
-            String penName = "0aa"+outR;
+            String pastureName = "0aa"+outR;
 //            transferPenName=penName;
             Thread.sleep(200);
-    //            enter.sendKeys(transferPenName);
-            enter.sendKeys(penName);
+//            enter.sendKeys(transferPenName);
+            enter.sendKeys(pastureName);
             driver.hideKeyboard();
-            //pen
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+            //pasture
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
             //save
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
             //try
@@ -763,15 +793,15 @@ public class Single_MovePen extends  Herd{
                         Random r=new Random();
                         int rNumber = r.nextInt(0, 99);
                         Thread.sleep(100);
-                        String penName2 = "0aa"+outR;
+                        String pastureName2 = "0aa"+outR;
 //                        transferPenName=penName2;
                         Thread.sleep(200);
 //                        enter.sendKeys(transferPenName);
-                        enter.sendKeys(penName2);
+                        enter.sendKeys(pastureName2);
                         driver.hideKeyboard();
 
-                        //pen
-                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen']"))).click();
+                        //pasture
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pasture']"))).click();
                         //save
                         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
 
@@ -804,7 +834,12 @@ public class Single_MovePen extends  Herd{
 
             //select pen/pasture
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[@content-desc='Select'])[1]"))).click();
-            //select pen
+
+            //pasture tab
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[contains(@content-desc,'Pastures')])[3]"))).click();
+
+
+            //select pasture
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[3]"))).click();
             //done
             Thread.sleep(200);
@@ -865,7 +900,10 @@ public class Single_MovePen extends  Herd{
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Add Animals to Inventory']"))).click();
                             //yes
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Yes']"))).click();
-                            //pen
+                            //pasture tab
+                            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Pastures')]"))).click();
+
+                            //pasture
                             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]"))).click();
                             condition=true;
                         }
@@ -879,11 +917,12 @@ public class Single_MovePen extends  Herd{
                 e1.getMessage();
             }
             //tag details
-            Thread.sleep(500);
+            Thread.sleep(1000);
             WebElement tagD1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='0'])[14]")));
             String tagValue1 = tagD1.getAttribute("content-desc");
             Thread.sleep(200);
             String[] line1 = tagValue1.split("\\r?\\n");
+            Thread.sleep(200);
             String moveTagID1 = line1[0].substring(4);
             moveTagID=moveTagID1;
             //menu dot
@@ -891,7 +930,7 @@ public class Single_MovePen extends  Herd{
             //move to pen / pasture
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Move to Pen / Pasture']"))).click();
         }
-        System.out.println("move tag id : "+moveTagID);
+        System.out.println("move tag id : "+moveTagIDe);
         //select
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Select']"))).click();
         //unassinged
@@ -951,3 +990,4 @@ public class Single_MovePen extends  Herd{
 
     }
 }
+
