@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a9e55852-d396-4d5d-a752-1c76736bf03e" name="Changes" comment="first">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Part/Single_MovePen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/Single_MovePen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/EditAnimalDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/EditAnimalDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part/Herd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part/Herd.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +153,7 @@
     "TestNG.SelectAllCommonAndSpecificInformation_Toggle.tagId.executor": "Run",
     "TestNG.SelectAllCommonAndSpecificInformation_Toggle.verifyAddTagId.executor": "Run",
     "TestNG.SingleAndMultipleTag.executor": "Run",
+    "TestNG.Single_EditAnimal.executor": "Run",
     "TestNG.Single_MovePasture.executor": "Run",
     "TestNG.Single_MovePasture.movePasture_To_Unassigned.executor": "Run",
     "TestNG.Single_MovePenAndPasture.executor": "Run",
@@ -171,6 +173,9 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "onboarding.tips.debug.path": "C:/Users/E-7/IdeaProjects/HerdX/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
@@ -189,11 +194,28 @@
       <recent name="Task" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Single_MovePasture">
+  <component name="RunManager" selected="TestNG.Single_EditAnimal">
     <configuration name="C:/Users/E-7/IdeaProjects/HerdX/SingleAnimal.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/SingleAnimal.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Single_EditAnimal" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="HerdX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Part.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Part" />
+      <option name="MAIN_CLASS_NAME" value="Part.Single_EditAnimal" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -235,23 +257,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Single_MovePen" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HerdX" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Part.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Part" />
-      <option name="MAIN_CLASS_NAME" value="Part.Single_MovePen" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Single_MovePen.movePen_To_Unassigned" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HerdX" />
       <extension name="coverage">
@@ -272,10 +277,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.Single_EditAnimal" />
         <item itemvalue="TestNG.Single_MovePasture" />
         <item itemvalue="TestNG.C:/Users/E-7/IdeaProjects/HerdX/SingleAnimal.xml" />
         <item itemvalue="TestNG.Single_MovePasture.movePasture_To_Unassigned" />
-        <item itemvalue="TestNG.Single_MovePenAndPasture" />
         <item itemvalue="TestNG.Single_MovePen.movePen_To_Unassigned" />
       </list>
     </recent_temporary>

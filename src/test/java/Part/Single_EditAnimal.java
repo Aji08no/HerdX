@@ -20,19 +20,21 @@ import java.time.Duration;
 import java.util.Properties;
 import java.util.Random;
 
-public class EditAnimalDetails extends Herd {
+public class Single_EditAnimal extends Herd {
 
-    String transferPenName="";
-    String tagId="";
+    String transferPenName = "";
+    String tagId = "";
 
-    String penName="";
+    String penName = "";
+
 
     @Test(priority = 0)
-    public void editTagIdDetails() throws IOException, InterruptedException {
+    public void editAnimal() throws IOException, InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(8));
         TouchAction touchAction = new TouchAction<>(driver);
+
         String path = "C:\\Users\\E-7\\IdeaProjects\\HerdX\\src\\main\\resources\\Imformation.properties";
         FileInputStream file = new FileInputStream(path);
         Properties pro = new Properties();
@@ -41,6 +43,7 @@ public class EditAnimalDetails extends Herd {
         WebElement location1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Total Animals')]")));
         location1.click();
         Thread.sleep(1000);
+
         try {
             WebDriverWait waitStart = new WebDriverWait(driver, Duration.ofSeconds(15));
             WebElement penContent = waitStart.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.view.View[@index='1'])[4]")));
@@ -139,8 +142,8 @@ public class EditAnimalDetails extends Herd {
 
                     //Manual Entry
                     wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Manual Entry')]"))).click();
-                    //Manual click
-                    Thread.sleep(1000);
+                    //Manual click arrow
+                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='2']"))).click();
                     //click pen/pasture
                     wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen / Pasture']"))).click();
                     //right arrow
@@ -248,8 +251,8 @@ public class EditAnimalDetails extends Herd {
 
                 //Manual Entry
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Manual Entry')]"))).click();
-                //Manual click
-                Thread.sleep(1000);
+                //Manual click arrow
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='2']"))).click();
                 //click pen/pasture
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen / Pasture']"))).click();
                 //right arrow
@@ -364,7 +367,7 @@ public class EditAnimalDetails extends Herd {
             //try
             try {
                 wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Added Successfully')]")));
-                System.out.println("penName : "+penName);
+                System.out.println("penName : " + penName);
             } catch (Exception e1) {
                 boolean addCondition = true;
                 while (addCondition) {
@@ -395,7 +398,7 @@ public class EditAnimalDetails extends Herd {
                     }
 
                 }
-                System.out.println("penName : "+penName);
+                System.out.println("penName : " + penName);
             }
             //plus icon
             Thread.sleep(5000);
@@ -407,8 +410,8 @@ public class EditAnimalDetails extends Herd {
 
             //Manual Entry
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Manual Entry')]"))).click();
-            //Manual click
-            Thread.sleep(1000);
+            //Manual click arrow
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='2']"))).click();
             //click pen/pasture
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Pen / Pasture']"))).click();
             //right arrow
@@ -598,14 +601,19 @@ public class EditAnimalDetails extends Herd {
         driver.hideKeyboard();
         //save
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+
+        WebDriverWait waitLoad = new WebDriverWait(driver, Duration.ofSeconds(60));
+        //pop up
+        WebElement success = waitLoad.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Successfully')]")));
+        System.out.println(success.getAttribute("content-desc"));
     }
 
     @Test(priority = 1)
-    public  void verifyEditTag() throws InterruptedException, IOException {
-        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
+    public void verifyEditAnimal() throws InterruptedException, IOException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-        FileInputStream file=new FileInputStream("C:\\Users\\E-7\\IdeaProjects\\HerdX\\src\\main\\resources\\Imformation.properties");
-        Properties pro=new Properties();
+        FileInputStream file = new FileInputStream("C:\\Users\\E-7\\IdeaProjects\\HerdX\\src\\main\\resources\\Imformation.properties");
+        Properties pro = new Properties();
         pro.load(file);
         //verify
         Thread.sleep(5000);
@@ -616,10 +624,9 @@ public class EditAnimalDetails extends Herd {
         WebElement verifyPenContent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
         String verifyPen = verifyPenContent.getAttribute("content-desc");
         String[] line = verifyPen.split("\\r?\\n");
-        if (line[0].equals(penName)){
+        if (line[0].equals(penName)) {
             verifyPenContent.click();
-        }
-        else {
+        } else {
             WebElement inventorySearchBar = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='14']")));
             inventorySearchBar.click();
             Thread.sleep(200);
@@ -635,7 +642,7 @@ public class EditAnimalDetails extends Herd {
             Thread.sleep(200);
             sEnter.sendKeys(tagId);
             driver.hideKeyboard();
-        }catch (StaleElementReferenceException s){
+        } catch (StaleElementReferenceException s) {
             WebElement sEnter = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='1'])[2]")));
             sEnter.click();
             Thread.sleep(200);
@@ -652,38 +659,38 @@ public class EditAnimalDetails extends Herd {
         String[] lines3 = tagValue.split("\\r?\\n");
         System.out.println("=======================================");
         //lot id
-        Assert.assertEquals(lines3[1],pro.getProperty("lotID"));
-        System.out.println("Actual lotId :"+lines3[1]+"  "+"Expected lotId :"+pro.getProperty("lotID"));
+        Assert.assertEquals(lines3[1], pro.getProperty("lotID"));
+        System.out.println("Actual lotId :" + lines3[1] + "  " + "Expected lotId :" + pro.getProperty("lotID"));
         //secondary id
-        Assert.assertEquals(lines3[3],pro.getProperty("secondaryID"));
-        System.out.println("Actual secondaryId :"+lines3[3]+"  "+"Expected secondaryId :"+pro.getProperty("secondaryID"));
+        Assert.assertEquals(lines3[3], pro.getProperty("secondaryID"));
+        System.out.println("Actual secondaryId :" + lines3[3] + "  " + "Expected secondaryId :" + pro.getProperty("secondaryID"));
         //USDA
-        Assert.assertEquals(lines3[5],pro.getProperty("USDA840Tag"));
-        System.out.println("Actual USDA840Tag :"+lines3[5]+"  "+"Expected USDA840Tag :"+pro.getProperty("USDA840Tag"));
+        Assert.assertEquals(lines3[5], pro.getProperty("USDA840Tag"));
+        System.out.println("Actual USDA840Tag :" + lines3[5] + "  " + "Expected USDA840Tag :" + pro.getProperty("USDA840Tag"));
         //breeder
-        Assert.assertEquals(lines3[7],pro.getProperty("breeder"));
-        System.out.println("Actual breeder :"+lines3[7]+"  "+"Expected breeder :"+pro.getProperty("breeder"));
+        Assert.assertEquals(lines3[7], pro.getProperty("breeder"));
+        System.out.println("Actual breeder :" + lines3[7] + "  " + "Expected breeder :" + pro.getProperty("breeder"));
         //order buyer
-        Assert.assertEquals(lines3[9],pro.getProperty("orderBuyer"));
-        System.out.println("Actual orderBuyer :"+lines3[9]+"  "+"Expected orderBuyer :"+pro.getProperty("orderBuyer"));
+        Assert.assertEquals(lines3[9], pro.getProperty("orderBuyer"));
+        System.out.println("Actual orderBuyer :" + lines3[9] + "  " + "Expected orderBuyer :" + pro.getProperty("orderBuyer"));
         //purchase price
-        Assert.assertEquals(lines3[11],pro.getProperty("purchasePrice"));
-        System.out.println("Actual purchasePrice :"+lines3[11]+"  "+"Expected purchasePrice :"+pro.getProperty("purchasePrice"));
+        Assert.assertEquals(lines3[11], pro.getProperty("purchasePrice"));
+        System.out.println("Actual purchasePrice :" + lines3[11] + "  " + "Expected purchasePrice :" + pro.getProperty("purchasePrice"));
         //dam
-        Assert.assertEquals(lines3[15],pro.getProperty("dam"));
-        System.out.println("Actual dam :"+lines3[15]+"  "+"Expected dam :"+pro.getProperty("dam"));
+        Assert.assertEquals(lines3[15], pro.getProperty("dam"));
+        System.out.println("Actual dam :" + lines3[15] + "  " + "Expected dam :" + pro.getProperty("dam"));
         //sire
-        Assert.assertEquals(lines3[17],pro.getProperty("sire"));
-        System.out.println("Actual sire :"+lines3[17]+"  "+"Expected sire :"+pro.getProperty("sire"));
+        Assert.assertEquals(lines3[17], pro.getProperty("sire"));
+        System.out.println("Actual sire :" + lines3[17] + "  " + "Expected sire :" + pro.getProperty("sire"));
         //breed
-        Assert.assertEquals(lines3[23],pro.getProperty("breeds"));
-        System.out.println("Actual breeds :"+lines3[23]+"  "+"Expected breeds :"+pro.getProperty("breeds"));
+        Assert.assertEquals(lines3[23], pro.getProperty("breeds"));
+        System.out.println("Actual breeds :" + lines3[23] + "  " + "Expected breeds :" + pro.getProperty("breeds"));
         //sex type
-        Assert.assertEquals(lines3[25],pro.getProperty("sexType"));
-        System.out.println("Actual sexType :"+lines3[25]+"  "+"Expected sexType :"+pro.getProperty("sexType"));
+        Assert.assertEquals(lines3[25], pro.getProperty("sexType"));
+        System.out.println("Actual sexType :" + lines3[25] + "  " + "Expected sexType :" + pro.getProperty("sexType"));
         //weaning weight
-        Assert.assertEquals(lines3[29],pro.getProperty("weaningWeight")+" lbs");
-        System.out.println("Actual weaningWeight :"+lines3[29]+"  "+"Expected weaningWeight :"+pro.getProperty("weaningWeight")+" lbs");
+        Assert.assertEquals(lines3[29], pro.getProperty("weaningWeight") + " lbs");
+        System.out.println("Actual weaningWeight :" + lines3[29] + "  " + "Expected weaningWeight :" + pro.getProperty("weaningWeight") + " lbs");
 
         Thread.sleep(500);
         //back arrow
@@ -694,3 +701,4 @@ public class EditAnimalDetails extends Herd {
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
 }
+

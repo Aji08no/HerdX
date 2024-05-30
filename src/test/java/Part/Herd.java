@@ -58,7 +58,7 @@ public class Herd {
         URL url = new URL("http://0.0.0.0:4723/wd/hub");
 
         driver = new AndroidDriver(url, options);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(12));
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.android.permissioncontroller:id/permission_allow_foreground_only_button"))).click();
 
