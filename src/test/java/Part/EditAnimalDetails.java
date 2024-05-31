@@ -55,8 +55,8 @@ public class EditAnimalDetails extends Herd {
                 //tag
                 WebElement tagContent = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.view.View[@index='0'])[14]")));
                 String content2 = tagContent.getAttribute("content-desc");
-                String[] lines2 = content2.split("\\r?\\n");
-                String getTagId = lines2[0].substring(4).trim();
+                String[] lines2 = content2.split(" ");
+                String getTagId = lines2[1].substring(0,5).trim();
                 Thread.sleep(200);
                 tagId = getTagId;
                 System.out.println("Edit TagId :" + getTagId);
@@ -331,8 +331,8 @@ public class EditAnimalDetails extends Herd {
                     //tag
                     WebElement tagContent = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.view.View[@index='0'])[14]")));
                     String tagD = tagContent.getAttribute("content-desc");
-                    String[] lines3 = tagD.split("\\r?\\n");
-                    String getTagId = lines3[0].substring(4).trim();
+                    String[] lines3 = tagD.split(" ");
+                    String getTagId = lines3[1].substring(0,5);
                     Thread.sleep(200);
                     tagId = getTagId;
                     System.out.println("created TagId :" + getTagId);
@@ -490,8 +490,8 @@ public class EditAnimalDetails extends Herd {
                 //tag
                 WebElement tagContent = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.view.View[@index='0'])[14]")));
                 String tagD = tagContent.getAttribute("content-desc");
-                String[] lines3 = tagD.split("\\r?\\n");
-                String getTagId = lines3[0].substring(4).trim();
+                String[] lines3 = tagD.split(" ");
+                String getTagId = lines3[1].substring(0,5);
                 Thread.sleep(200);
                 tagId = getTagId;
                 System.out.println("created TagId :" + getTagId);
@@ -520,6 +520,7 @@ public class EditAnimalDetails extends Herd {
         Thread.sleep(100);
         enterLotId.clear();
         enterLotId.sendKeys(pro.getProperty("lotID"));
+        Thread.sleep(200);
         driver.hideKeyboard();
         //secondary id
         WebElement enterSecondaryId = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText[@index='4']")));
@@ -598,6 +599,14 @@ public class EditAnimalDetails extends Herd {
         driver.hideKeyboard();
         //save
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+
+        //pop up
+        WebElement success = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Successfully')]")));
+        System.out.println(success.getAttribute("content-desc"));
+
+        //back arrow
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
+
     }
 
     @Test(priority = 1)
@@ -609,8 +618,6 @@ public class EditAnimalDetails extends Herd {
         pro.load(file);
         //verify
         Thread.sleep(5000);
-        //back arrow
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
 
         //pen content
         WebElement verifyPenContent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.view.View[@index='1'])[4]")));
