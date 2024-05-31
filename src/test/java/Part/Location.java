@@ -123,6 +123,12 @@ public class Location extends Herd{
             }
 
         }
+
+        //pop up
+        WebElement success = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Successfully')]")));
+        System.out.println(success.getAttribute("content-desc"));
+
+        Thread.sleep(200);
         //search location
         WebElement searchLocation = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']")));
         searchLocation.click();
@@ -300,6 +306,11 @@ public class Location extends Herd{
                 }
             }
         }
+        //pop up
+        WebElement success = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Successfully')]")));
+        System.out.println(success.getAttribute("content-desc"));
+
+        Thread.sleep(200);
         WebElement searchLocation2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='3']")));
         searchLocation2.click();
         searchLocation2.clear();
