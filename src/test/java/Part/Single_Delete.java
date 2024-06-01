@@ -469,15 +469,16 @@ public class Single_Delete extends Herd{
 
 //        Thread.sleep(5000);
         try{
-            loadWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.ImageView[@index='2']")));
+            loadWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@content-desc,'Total Animals')]")));
 
+            //pop up
+            WebElement success = loadWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[contains(@content-desc,'Deleted')])[2]")));
+            System.out.println(success.getAttribute("content-desc"));
+            }
+        catch (Exception e) {
             //back arrow
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
-        }
-        catch (Exception e) {
-            //pop up
-            WebElement success = loadWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[contains(@content-desc,'Has Been Deleted')])[2]")));
-            System.out.println(success.getAttribute("content-desc"));
+
         }
         System.out.println("Deleted TagID :"+deleteID);
     }
