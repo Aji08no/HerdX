@@ -108,7 +108,7 @@ public class Multiple_MoveUnassigned extends Herd{
             fromEnter.click();
             Thread.sleep(200);
             Random r = new Random();
-            int rNumber = r.nextInt(200, 299);
+            int rNumber = r.nextInt(400, 499);
             Thread.sleep(200);
             fromEnter.sendKeys(rNumber+"0");
 
@@ -125,7 +125,7 @@ public class Multiple_MoveUnassigned extends Herd{
                         Thread.sleep(200);
                         fromEnter1.clear();
                         Random r1 = new Random();
-                        int rNumber1 = r1.nextInt(200, 299);
+                        int rNumber1 = r1.nextInt(400, 499);
                         Thread.sleep(200);
                         fromEnter1.sendKeys(rNumber1+"0");
                     }
@@ -183,6 +183,7 @@ public class Multiple_MoveUnassigned extends Herd{
             //unAssigned tab
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//*[contains(@content-desc,'Unassigned')])[2]"))).click();
            //unAssigned content
+            Thread.sleep(200);
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[4]"))).click();
         }
         //menu dot
@@ -382,7 +383,7 @@ public class Multiple_MoveUnassigned extends Herd{
             fromEnter.click();
             Thread.sleep(200);
             Random r = new Random();
-            int rNumber = r.nextInt(200, 299);
+            int rNumber = r.nextInt(400, 499);
             Thread.sleep(200);
             fromEnter.sendKeys(rNumber+"0");
 
@@ -399,7 +400,7 @@ public class Multiple_MoveUnassigned extends Herd{
                         Thread.sleep(200);
                         fromEnter1.clear();
                         Random r1 = new Random();
-                        int rNumber1 = r1.nextInt(200, 299);
+                        int rNumber1 = r1.nextInt(400, 499);
                         Thread.sleep(200);
                         fromEnter1.sendKeys(rNumber1+"0");
                     }
