@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.Random;
 
 public class Protocol extends Herd{
 
@@ -18,6 +19,7 @@ public class Protocol extends Herd{
     public void createProtocols() throws InterruptedException {
         //menuBar
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait1=new WebDriverWait(driver, Duration.ofSeconds(10));
         Thread.sleep(8000);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//android.widget.ImageView[@index='0'])[1]"))).click();
         //settings
@@ -67,6 +69,41 @@ public class Protocol extends Herd{
         wait.until(ExpectedConditions.presenceOfElementLocated(AppiumBy.accessibilityId("Done"))).click();
         //save
         wait.until(ExpectedConditions.presenceOfElementLocated(AppiumBy.accessibilityId("Save"))).click();
+
+
+
+        //created pop up
+        try {
+            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Protocol Added Successfully')]")));
+        }
+        catch (Exception e){
+            //enter Protocol
+            WebElement enterPName1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@index='4' and @class='android.widget.EditText']")));
+            String getName = enterPName1.getText();
+
+            boolean condition = true;
+            while (condition){
+                Random r=new Random();
+
+                enterPName1.click();
+                Thread.sleep(200);
+                enterPName1.clear();
+                String generateName = getName + r.nextInt(0, 25);
+                enterPName1.sendKeys(generateName);
+                driver.hideKeyboard();
+
+                //save
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc='Save']"))).click();
+
+                try {
+                    wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Protocol name already exists')]")));
+                }
+                catch (Exception e1){
+                    condition = false;
+                }
+            }
+
+        }
         Thread.sleep(6000);
         //verify
         WebElement pName = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index='1'])[2]")));
