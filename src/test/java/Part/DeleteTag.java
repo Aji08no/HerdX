@@ -216,8 +216,8 @@ public class DeleteTag extends Herd{
         String tagValue = tagD.getAttribute("content-desc");
 //        System.out.println(tagD.getAttribute("content-desc"));
         Thread.sleep(200);
-        String[] line = tagValue.split("\\r?\\n");
-        String deleteTag = line[0].substring(4);
+        String[] line = tagValue.split(" ");
+        String deleteTag = line[1].substring(0,5);
         deleteID=deleteTag;
 
         //tag menu dot
@@ -389,8 +389,8 @@ public class DeleteTag extends Herd{
             String tagValue1 = tagD1.getAttribute("content-desc");
 //        System.out.println(tagD.getAttribute("content-desc"));
             Thread.sleep(200);
-            String[] line1 = tagValue1.split("\\r?\\n");
-            String deleteTag1 = line1[0].substring(4);
+            String[] line1 = tagValue1.split(" ");
+            String deleteTag1 = line1[1].substring(0,5);
             deleteID=deleteTag1;
                 //menu dot
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.view.View[@index=0])[14]//android.widget.ImageView[@index='1']"))).click();
@@ -442,8 +442,16 @@ public class DeleteTag extends Herd{
 
         loadWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@content-desc,'Been Deleted')]")));
 
+        //search enter
+        Thread.sleep(200);
+        WebElement sEnter = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index=1])[2]")));
+        sEnter.click();
+        Thread.sleep(200);
+        sEnter.sendKeys(deleteID);
+        driver.hideKeyboard();
+
         System.out.println("TagID Deleted Successfully");
-        System.out.println("Deleted TagID :"+deleteTag);
+        System.out.println("Deleted TagID : "+deleteTag);
 
         try {
 
@@ -509,13 +517,15 @@ public class DeleteTag extends Herd{
         String[] lines2 = content2.split("\\r?\\n");
         String totalTag = lines2[1];
 
+        Thread.sleep(1500);
         if (Integer.parseInt(totalTag) > 0) {
             penContent.click();
             //search enter
             Thread.sleep(200);
             WebElement sEnter = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//android.widget.ImageView[@index=1])[2]")));
             sEnter.click();
-            sEnter.sendKeys(deleteID.trim());
+            Thread.sleep(200);
+            sEnter.sendKeys(deleteID);
             driver.hideKeyboard();
             //pen tag details
             Thread.sleep(200);
